@@ -89,3 +89,5 @@ jspm_packages/
 **/.vitepress/dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+/app/generated/prisma
