@@ -30,11 +30,20 @@
 
           {/* Image */}
           <div>
-            <img
-              src={image}
-              className="w-full h-[300px] object-cover rounded-[10px] shadow-xl"
-              alt={title}
-            />
+           <img
+  src={image}
+  alt={title}
+  className="
+    w-full 
+    h-[220px] 
+    md:h-[260px] 
+    object-cover 
+    rounded-xl 
+    shadow-lg
+  "
+  loading="lazy"
+/>
+
           </div>
         </div>
       );
@@ -49,7 +58,9 @@
         </section>
 
         {/* INTRO */}
-        <section className="text-center space-y-3 max-w-3xl mx-auto px-6 py-10">
+       <section className="relative text-center space-y-3 px-6 py-20
+                   bg-gradient-to-b from-green-50 to-white">
+
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             Book Your Wildlife Adventure
           </h2>

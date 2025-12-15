@@ -42,7 +42,8 @@ export default function HeroCarousel() {
           {slides.map((slide, index) => (
             <div
               key={index}
-              className="embla__slide relative min-w-full h-[85vh]"
+              className="embla__slide relative min-w-full h-[70vh] md:h-[90vh]"
+
             >
               <img
                 src={slide.src}

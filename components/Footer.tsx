@@ -11,13 +11,13 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <Image
-              src="/Siri.png" // <-- replace with your logo
+              src="/Siri (1).png" 
               width={60}
               height={60}
               alt="Udawalawe Safari Logo"
               className="rounded-lg"
             />
-            <h2 className="text-2xl font-bold text-white">Udawalawe Safari</h2>
+            <h2 className="text-2xl font-bold text-white">Siri Safari</h2>
           </div>
 
           <p className="mt-4 text-gray-400 leading-relaxed">
@@ -27,20 +27,25 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* --- QUICK LINKS --- */}
-        <div>
-          <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
-          <ul className="space-y-3">
-  <li><a href="/" className="hover:text-white transition">Home</a></li>
-  <li><a href="/safari-packages" className="hover:text-white transition">Safari Packages</a></li>
-  <li><a href="/#bungalows" className="hover:text-white transition">Bungalows</a></li>
-  <li><a href="/#hotels" className="hover:text-white transition">Hotels</a></li>
-  <li><a href="/#other" className="hover:text-white transition">Other Places</a></li>
-  <li><a href="/about" className="hover:text-white transition">About Us</a></li>
-  <li><a href="/contact" className="hover:text-white transition">Contact Us</a></li>
-</ul>
+       {/* --- QUICK LINKS --- */}
+<div>
+  <h3 className="text-xl font-semibold text-white mb-4">
+    Quick Links
+  </h3>
 
-        </div>
+ <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+    <li><a href="/" className="hover:text-white transition">Home</a></li>
+    <li><a href="/safari-packages" className="hover:text-white transition">Safari Packages</a></li>
+    <li><a href="/#bungalows" className="hover:text-white transition">Bungalows</a></li>
+    <li><a href="/#hotels" className="hover:text-white transition">Hotels</a></li>
+    <li><a href="/#other" className="hover:text-white transition">Other Places</a></li>
+    <li><a href="/about" className="hover:text-white transition">About Us</a></li>
+    <li><a href="/contact" className="hover:text-white transition">Contact Us</a></li>
+    <li><a href="/blogs/gallery" className="hover:text-white transition">Gallery</a></li>
+    <li><a href="/#faq" className="hover:text-white transition">FAQ</a></li>
+  </ul>
+</div>
+
 
         {/* --- MAP SECTION --- */}
         <div>
