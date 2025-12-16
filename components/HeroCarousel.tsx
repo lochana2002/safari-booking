@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
-  { src: "/entrance.jpg", text: "Welcome to Udawalawe Safari" },
-  { src: "/download (3).jpg", text: "See Wild Elephants Up Close" },
-  { src: "/new.avif", text: "Experience Sri Lankan Wildlife" },
+  { src: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/34/fa/af.jpg", text: "Welcome to Udawalawe Safari" },
+  { src: "https://lakpura.com/cdn/shop/products/LK60400100-03-E-1280-720.jpg?v=1624589428&width=1445", text: "See Wild Elephants Up Close" },
+  { src: "https://cdn.getyourguide.com/img/tour/5c14bc3f50a6c8858008d206bad7303aea76f402762cab2ec3b830ceca7a0aeb.jpg/68.jpg", text: "Experience Sri Lankan Wildlife" },
 ];
 
 export default function HeroCarousel() {

@@ -6,7 +6,7 @@ export default function Contact() {
       <section className="relative h-[60vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/contact.jpg')" }}
+          style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSD9RD_AIJeI81XnTQzAeGXAQZLY2OM4_QA&s')" }}
         />
         <div className="absolute inset-0 bg-black/50"></div>
 
@@ -17,6 +17,12 @@ export default function Contact() {
           <p className="text-lg md:text-xl text-gray-200 mt-6">
             Plan your Udawalawe safari with confidence & local expertise.
           </p>
+           {/* CONTACT DETAILS */}
+        <div className="space-y-3 text-center">
+          <p><strong>Phone:</strong> +94 77 123 4567</p>
+          <p><strong>Email:</strong> udawalawe.safari@gmail.com</p>
+          <p><strong>Location:</strong> Udawalawe, Sri Lanka</p>
+        </div>
         </div>
       </section>
 

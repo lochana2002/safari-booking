@@ -10,7 +10,7 @@ export default function Blogs() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/blog.avif')", 
+            backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4kGc7pVnihUtgSdMrkUWzIIVC51sO4ZJ_90qAoly-Uw&s')", 
           }}
         />
 

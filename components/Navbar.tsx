@@ -31,7 +31,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-green-900 shadow-md"
+          ? "bg-green-950 shadow-md"
           : "bg-transparent backdrop-blur-md"
       }`}
     >
@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* DESKTOP MENU */}
         <div className="hidden md:flex gap-8 text-base items-center">
           <Link href="/" className={linkClass("/")}>Home</Link>
-          <Link href="/about" className={linkClass("/about")}>About Us</Link>
+          <Link href="/about" className={linkClass("/about")}>About</Link>
           <Link href="/safari-packages" className={linkClass("/safari-packages")}>
             Safari Packages
           </Link>
@@ -86,7 +86,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/contact" className={linkClass("/contact")}>
-            Contact Us
+            Contact
           </Link>
         </div>
 
