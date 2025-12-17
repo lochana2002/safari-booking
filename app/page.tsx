@@ -130,7 +130,7 @@
             link="/wildlife/deer"
           />
 
-<p className="text-center text-lg text-gray-600 max-w-10xl mx-auto mb-12">
+        <p className="text-center text-lg text-gray-600 max-w-10xl mx-auto mb-12">
   In addition to these iconic animals, Udawalawe National Park is also home to
   wild buffaloes, sambar deer, jackals, monkeys, snakes, tortoises, monitor
   lizards, and many other reptiles and mammals that thrive in its diverse
@@ -172,6 +172,29 @@
             image="https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg"
             link="https://www.google.com/search?q=Senuggala+Bungalow+at+udawalawe+national+park&sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifPmPzgpqzQA135rgdf9Zub62dXMcw%3A1765871660027&ei=LBBBadS2AYqfvr0PnNSwoAs&ved=2ahUKEwjU_I7I0MGRAxWKj68BHRwqDLQQ4dUDegQIBRAN&uact=5&oq=Senuggala+Bungalow+at+udawalawe+national+park&gs_lp=Egxnd3Mtd2l6LXNlcnAiLVNlbnVnZ2FsYSBCdW5nYWxvdyBhdCB1ZGF3YWxhd2UgbmF0aW9uYWwgcGFyazIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIIEAAYgAQYogQyCBAAGIAEGKIESKHSAVCKvAFYw8UBcAJ4AZABAJgBiQKgAesHqgEDMi00uAEDyAEA-AEB-AECmAIGoAKgCMICChAAGLADGNYEGEfCAgoQABgFGAcYChgewgIIEAAYBRgHGB7CAgsQABiABBiGAxiKBcICBhAAGAcYHsICCBAAGAcYChgemAMAiAYBkAYIkgcFMi4wLjSgB-EUsgcDMi00uAeMCMIHBTItNC4yyAclgAgA&sclient=gws-wiz-serp"
           />
+        </section>
+
+                {/* Homestay */}
+       <section id="homestay" className="relative text-center space-y-3 px-6 py-20
+                   bg-gradient-to-b from-green-50 to-white">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Our Homestay
+          </h2>
+
+          <p className="text-gray-600 text-lg leading-relaxed">
+             You can also stay in our exclusive private home stay with only 3 rooms,
+  located just minutes from Udawalawe National Park.
+          </p>
+
+          <div className="flex justify-center">
+            <a
+  href="/homestay"
+  className="inline-block mt-6 px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition"
+>
+  View Our Homestay
+</a>
+</div>
         </section>
 
         <section id="other" className="max-w-7xl mx-auto px-6 py-20">
@@ -253,6 +276,7 @@
     ))}
   </div>
 </section>
+
 {/* 🏨 HOTELS SECTION */}
 <section id="hotels" className="max-w-7xl mx-auto px-6 py-20">
 

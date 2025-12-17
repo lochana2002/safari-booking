@@ -37,6 +37,7 @@ export default function Footer() {
     <li><a href="/" className="hover:text-white transition">Home</a></li>
     <li><a href="/safari-packages" className="hover:text-white transition">Safari Packages</a></li>
     <li><a href="/#bungalows" className="hover:text-white transition">Bungalows</a></li>
+    <li><a href="/homestay" className="hover:text-white transition">Homestay</a></li>
     <li><a href="/#hotels" className="hover:text-white transition">Hotels</a></li>
     <li><a href="/#other" className="hover:text-white transition">Other Places</a></li>
     <li><a href="/about" className="hover:text-white transition">About</a></li>

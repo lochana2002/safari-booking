@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,20 +8,22 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [blogOpen, setBlogOpen] = useState(false); // mobile dropdown
+  const [blogOpen, setBlogOpen] = useState(false); // mobile
+  const [desktopBlogOpen, setDesktopBlogOpen] = useState(false); // desktop
+
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const linkClass = (path: string) =>
-    `transition font-medium ${
+    `transition font-medium cursor-pointer ${
       pathname === path
         ? "text-yellow-300"
         : "text-white hover:text-yellow-300"
@@ -56,10 +58,24 @@ export default function Navbar() {
             Safari Packages
           </Link>
 
-          {/* BLOGS DROPDOWN */}
-          <div className="relative group">
+          {/* BLOGS (HOVER + CLICK + DELAY FIX) */}
+          <div
+            className="relative"
+            onMouseEnter={() => {
+              if (closeTimeout.current) {
+                clearTimeout(closeTimeout.current);
+              }
+              setDesktopBlogOpen(true);
+            }}
+            onMouseLeave={() => {
+              closeTimeout.current = setTimeout(() => {
+                setDesktopBlogOpen(false);
+              }, 150); // 👈 critical delay
+            }}
+          >
             <button
-              className={`flex items-center gap-1 ${
+              onClick={() => setDesktopBlogOpen((prev) => !prev)}
+              className={`flex items-center gap-1 font-medium cursor-pointer transition ${
                 pathname.startsWith("/blogs")
                   ? "text-yellow-300"
                   : "text-white hover:text-yellow-300"
@@ -68,17 +84,23 @@ export default function Navbar() {
               Blogs <ChevronDown size={16} />
             </button>
 
-            {/* Dropdown */}
-            <div className="absolute top-full left-0 mt-2 w-40 rounded-xl bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <div
+              className={`absolute top-full left-0 mt-2 w-44 rounded-xl bg-white shadow-lg
+                transition-opacity duration-200
+                ${desktopBlogOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+            >
               <Link
                 href="/blogs"
                 className="block px-4 py-3 text-gray-800 hover:bg-gray-100 rounded-t-xl"
+                onClick={() => setDesktopBlogOpen(false)}
               >
                 Blogs
               </Link>
+
               <Link
                 href="/blogs/gallery"
                 className="block px-4 py-3 text-gray-800 hover:bg-gray-100 rounded-b-xl"
+                onClick={() => setDesktopBlogOpen(false)}
               >
                 Gallery
               </Link>
@@ -90,7 +112,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE MENU BUTTON */}
         <button
           className="md:hidden text-white"
           onClick={() => setIsOpen(!isOpen)}
@@ -122,10 +144,10 @@ export default function Navbar() {
             Safari Packages
           </Link>
 
-          {/* MOBILE BLOGS DROPDOWN */}
+          {/* MOBILE BLOGS */}
           <button
             onClick={() => setBlogOpen(!blogOpen)}
-            className="flex items-center justify-between text-white"
+            className="flex items-center justify-between cursor-pointer"
           >
             Blogs <ChevronDown size={18} />
           </button>
@@ -140,8 +162,8 @@ export default function Navbar() {
                 Blogs
               </Link>
               <Link
-                href="/gallery"
-                className={linkClass("/gallery")}
+                href="/blogs/gallery"
+                className={linkClass("/blogs/gallery")}
                 onClick={() => setIsOpen(false)}
               >
                 Gallery
