@@ -152,7 +152,6 @@ export default function SafariPackages() {
     </tbody>
   </table>
 </div>
-
           </div>
         </div>
       </section>

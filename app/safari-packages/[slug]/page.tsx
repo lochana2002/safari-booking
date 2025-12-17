@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const packages: Record<string, any> = {
+const packages = {
   "three-hour-safari": {
     title: "Three-Hour Safari",
     price: "Rs. 12,000",
@@ -48,13 +48,14 @@ const packages: Record<string, any> = {
   },
 };
 
-export default function PackageDetail({
-  params,
-}: {
-  params: { slug?: string };
-}) {
-  const slug = params?.slug;
-  const safariPackage = slug ? packages[slug] : null;
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function Page({ params }: Props) {
+  const safariPackage = packages[params.slug as keyof typeof packages];
 
   if (!safariPackage) {
     return (
@@ -74,7 +75,6 @@ export default function PackageDetail({
 
   return (
     <main className="bg-white min-h-screen">
-
       {/* HERO */}
       <section className="relative h-[60vh] flex items-center justify-center">
         <Image
@@ -102,7 +102,7 @@ export default function PackageDetail({
           <p className="text-gray-600">{safariPackage.description}</p>
 
           <ul className="mt-6 space-y-3">
-            {safariPackage.details.map((item: string, i: number) => (
+            {safariPackage.details.map((item, i) => (
               <li key={i} className="bg-gray-100 px-4 py-3 rounded-lg">
                 {item}
               </li>

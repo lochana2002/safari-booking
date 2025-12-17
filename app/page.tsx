@@ -1,5 +1,6 @@
   import HeroCarousel from "../components/HeroCarousel";
 
+
   export default function Home() {
 
     // Reusable wildlife section component
@@ -175,9 +176,7 @@
         </section>
 
                 {/* Homestay */}
-<section
-  id="homestay"
-  className="relative text-center px-6 py-20
+         <section id="homestay" className="relative text-center px-6 py-20
              bg-gradient-to-b from-green-50 to-white"
 >
   <div className="max-w-4xl mx-auto space-y-4">
