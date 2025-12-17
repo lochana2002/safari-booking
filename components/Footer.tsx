@@ -40,7 +40,6 @@ export default function Footer() {
     <li><a href="/homestay" className="hover:text-white transition">Homestay</a></li>
     <li><a href="/#hotels" className="hover:text-white transition">Hotels</a></li>
     <li><a href="/#other" className="hover:text-white transition">Other Places</a></li>
-    <li><a href="/about" className="hover:text-white transition">About</a></li>
     <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
     <li><a href="/blogs/gallery" className="hover:text-white transition">Gallery</a></li>
     <li><a href="/#faq" className="hover:text-white transition">FAQ</a></li>
