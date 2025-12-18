@@ -3,15 +3,13 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8 mt-20">
-
       {/* MAIN FOOTER GRID */}
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-
         {/* --- LOGO + DESCRIPTION --- */}
         <div>
           <div className="flex items-center gap-3">
             <Image
-              src="/Siri (1).png" 
+              src="/Siri (1).png"
               width={60}
               height={60}
               alt="Udawalawe Safari Logo"
@@ -27,25 +25,53 @@ export default function Footer() {
           </p>
         </div>
 
-       {/* --- QUICK LINKS --- */}
-<div>
-  <h3 className="text-xl font-semibold text-white mb-4">
-    Quick Links
-  </h3>
+        {/* --- QUICK LINKS --- */}
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-4">
+            Quick Links
+          </h3>
 
- <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
-    <li><a href="/" className="hover:text-white transition">Home</a></li>
-    <li><a href="/safari-packages" className="hover:text-white transition">Safari Packages</a></li>
-    <li><a href="/#bungalows" className="hover:text-white transition">Bungalows</a></li>
-    <li><a href="/homestay" className="hover:text-white transition">Homestay</a></li>
-    <li><a href="/#hotels" className="hover:text-white transition">Hotels</a></li>
-    <li><a href="/#other" className="hover:text-white transition">Other Places</a></li>
-    <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
-    <li><a href="/blogs/gallery" className="hover:text-white transition">Gallery</a></li>
-    <li><a href="/#faq" className="hover:text-white transition">FAQ</a></li>
-  </ul>
-</div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+            <li><a href="/safari-packages" className="hover:text-white transition">Safari Packages</a></li>
+            <li><a href="/#bungalows" className="hover:text-white transition">Bungalows</a></li>
+            <li><a href="/homestay" className="hover:text-white transition">Homestay</a></li>
+            <li><a href="/#hotels" className="hover:text-white transition">Hotels</a></li>
+            <li><a href="/#other" className="hover:text-white transition">Other Places</a></li>
+            <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
+            <li><a href="/blogs/gallery" className="hover:text-white transition">Gallery</a></li>
+            <li><a href="/safari-packages/#faq" className="hover:text-white transition">FAQ</a></li>
+          </ul>
 
+          {/* --- SOCIAL MEDIA ICONS --- */}
+          <div className="flex gap-4 mt-6">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition"
+            >
+              <Image src="/icons/facebook.png" alt="Facebook" width={28} height={28} />
+            </a>
+
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition"
+            >
+              <Image src="/icons/instagram.png" alt="Instagram" width={28} height={28} />
+            </a>
+
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition"
+            >
+              <Image src="/icons/youtube.png" alt="YouTube" width={28} height={28} />
+            </a>
+          </div>
+        </div>
 
         {/* --- MAP SECTION --- */}
         <div>

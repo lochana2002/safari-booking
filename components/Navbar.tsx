@@ -32,9 +32,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-green-950 shadow-md"
-          : "bg-transparent backdrop-blur-md"
+        scrolled ? "bg-green-950 shadow-md" : "bg-transparent backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
@@ -54,27 +52,21 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8 text-base items-center">
           <Link href="/" className={linkClass("/")}>Home</Link>
           <Link href="/about" className={linkClass("/about")}>About</Link>
-          <Link href="/safari-packages" className={linkClass("/safari-packages")}>
-            Safari Packages
-          </Link>
+          <Link href="/safari-packages" className={linkClass("/safari-packages")}>Safari Packages</Link>
 
           {/* BLOGS (HOVER + CLICK + DELAY FIX) */}
           <div
             className="relative"
             onMouseEnter={() => {
-              if (closeTimeout.current) {
-                clearTimeout(closeTimeout.current);
-              }
+              if (closeTimeout.current) clearTimeout(closeTimeout.current);
               setDesktopBlogOpen(true);
             }}
             onMouseLeave={() => {
-              closeTimeout.current = setTimeout(() => {
-                setDesktopBlogOpen(false);
-              }, 150); // 👈 critical delay
+              closeTimeout.current = setTimeout(() => setDesktopBlogOpen(false), 150);
             }}
           >
             <button
-              onClick={() => setDesktopBlogOpen((prev) => !prev)}
+              onClick={() => setDesktopBlogOpen(prev => !prev)}
               className={`flex items-center gap-1 font-medium cursor-pointer transition ${
                 pathname.startsWith("/blogs")
                   ? "text-yellow-300"
@@ -107,8 +99,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/contact" className={linkClass("/contact")}>
-            Contact
+          <Link href="/contact" className={linkClass("/contact")}>Contact</Link>
+
+          {/* BOOK A SAFARI BUTTON */}
+          <Link
+            href="/safari-packages/#booking-form" 
+            className="ml-4 px-5 py-2 bg-yellow-400 text-black font-medium rounded-lg hover:bg-yellow-300 transition"
+          >
+            Book a Safari
           </Link>
         </div>
 
@@ -128,21 +126,9 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col gap-3 px-6 text-base">
-          <Link href="/" className={linkClass("/")} onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
-
-          <Link href="/about" className={linkClass("/about")} onClick={() => setIsOpen(false)}>
-            About Us
-          </Link>
-
-          <Link
-            href="/safari-packages"
-            className={linkClass("/safari-packages")}
-            onClick={() => setIsOpen(false)}
-          >
-            Safari Packages
-          </Link>
+          <Link href="/" className={linkClass("/")} onClick={() => setIsOpen(false)}>Home</Link>
+          <Link href="/about" className={linkClass("/about")} onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link href="/safari-packages" className={linkClass("/safari-packages")} onClick={() => setIsOpen(false)}>Safari Packages</Link>
 
           {/* MOBILE BLOGS */}
           <button
@@ -154,29 +140,20 @@ export default function Navbar() {
 
           {blogOpen && (
             <div className="ml-4 flex flex-col gap-2">
-              <Link
-                href="/blogs"
-                className={linkClass("/blogs")}
-                onClick={() => setIsOpen(false)}
-              >
-                Blogs
-              </Link>
-              <Link
-                href="/blogs/gallery"
-                className={linkClass("/blogs/gallery")}
-                onClick={() => setIsOpen(false)}
-              >
-                Gallery
-              </Link>
+              <Link href="/blogs" className={linkClass("/blogs")} onClick={() => setIsOpen(false)}>Blogs</Link>
+              <Link href="/blogs/gallery" className={linkClass("/blogs/gallery")} onClick={() => setIsOpen(false)}>Gallery</Link>
             </div>
           )}
 
+          <Link href="/contact" className={linkClass("/contact")} onClick={() => setIsOpen(false)}>Contact Us</Link>
+
+          {/* MOBILE BOOK A SAFARI BUTTON */}
           <Link
-            href="/contact"
-            className={linkClass("/contact")}
+            href="/safari-packages/#booking-form"
+            className="mt-3 px-4 py-2 bg-yellow-400 text-black font-medium rounded-lg text-center hover:bg-yellow-300 transition"
             onClick={() => setIsOpen(false)}
           >
-            Contact Us
+            Book a Safari
           </Link>
         </div>
       </div>
