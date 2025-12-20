@@ -61,7 +61,7 @@ export default function WhatsAppChat() {
             <input
               name="message"
               placeholder="Write your message..."
-              className="flex-1 px-3 py-2 border rounded-full text-sm focus:outline-none"
+              className="flex-1 text-gray-800  px-3 py-2 border rounded-full text-sm focus:outline-none"
             />
             <button
               type="submit"

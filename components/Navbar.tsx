@@ -13,6 +13,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [blogOpen, setBlogOpen] = useState(false); // mobile
   const [desktopBlogOpen, setDesktopBlogOpen] = useState(false); // desktop
+  const [accommodationOpen, setAccommodationOpen] = useState(false); // mobile
+  const [desktopAccommodationOpen, setDesktopAccommodationOpen] = useState(false); // desktop
+
 
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -54,6 +57,67 @@ export default function Navbar() {
           <Link href="/about" className={linkClass("/about")}>About</Link>
           <Link href="/safari-packages" className={linkClass("/safari-packages")}>Safari Packages</Link>
 
+          {/* ACCOMMODATION (DESKTOP) */}
+<div
+  className="relative"
+  onMouseEnter={() => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    setDesktopAccommodationOpen(true);
+  }}
+  onMouseLeave={() => {
+    closeTimeout.current = setTimeout(
+      () => setDesktopAccommodationOpen(false),
+      150
+    );
+  }}
+>
+  <button
+    onClick={() =>
+      setDesktopAccommodationOpen((prev) => !prev)
+    }
+    className={`flex items-center gap-1 font-medium cursor-pointer transition ${
+      pathname.startsWith("/accommodation")
+        ? "text-yellow-300"
+        : "text-white hover:text-yellow-300"
+    }`}
+  >
+    Accommodation <ChevronDown size={16} />
+  </button>
+
+  <div
+    className={`absolute top-full left-0 mt-2 w-48 rounded-xl bg-white shadow-lg
+      transition-opacity duration-200
+      ${
+        desktopAccommodationOpen
+          ? "opacity-100 visible"
+          : "opacity-0 invisible"
+      }`}
+  >
+    <Link
+      href="/#bungalows"
+      className="block px-4 py-3 text-gray-800 hover:bg-gray-100 rounded-t-xl"
+      onClick={() => setDesktopAccommodationOpen(false)}
+    >
+      Bungalows
+    </Link>
+
+    <Link
+      href="/homestay"
+      className="block px-4 py-3 text-gray-800 hover:bg-gray-100"
+      onClick={() => setDesktopAccommodationOpen(false)}
+    >
+      Homestay
+    </Link>
+
+    <Link
+      href="/#hotels"
+      className="block px-4 py-3 text-gray-800 hover:bg-gray-100 rounded-b-xl"
+      onClick={() => setDesktopAccommodationOpen(false)}
+    >
+      Hotels
+    </Link>
+  </div>
+</div>
           {/* BLOGS (HOVER + CLICK + DELAY FIX) */}
           <div
             className="relative"
@@ -130,6 +194,41 @@ export default function Navbar() {
           <Link href="/about" className={linkClass("/about")} onClick={() => setIsOpen(false)}>About Us</Link>
           <Link href="/safari-packages" className={linkClass("/safari-packages")} onClick={() => setIsOpen(false)}>Safari Packages</Link>
 
+          {/* MOBILE ACCOMMODATION */}
+<button
+  onClick={() => setAccommodationOpen(!accommodationOpen)}
+  className="flex items-center justify-between cursor-pointer"
+>
+  Accommodation <ChevronDown size={18} />
+</button>
+
+{accommodationOpen && (
+  <div className="ml-4 flex flex-col gap-2">
+    <Link
+      href="/#bungalows"
+      className={linkClass("/#bungalows")}
+      onClick={() => setIsOpen(false)}
+    >
+      Bungalows
+    </Link>
+
+    <Link
+      href="/homestay"
+      className={linkClass("/homestay")}
+      onClick={() => setIsOpen(false)}
+    >
+      Homestay
+    </Link>
+
+    <Link
+      href="/#hotels"
+      className={linkClass("/#hotels")}
+      onClick={() => setIsOpen(false)}
+    >
+      Hotels
+    </Link>
+  </div>
+)}
           {/* MOBILE BLOGS */}
           <button
             onClick={() => setBlogOpen(!blogOpen)}

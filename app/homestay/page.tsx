@@ -226,7 +226,9 @@ export default function HomeStayPage() {
       <div className="relative z-20 max-w-7xl w-full px-6 grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT CONTENT */}
         <div>
-
+<p className="uppercase tracking-widest text-sm text-gray-300 mb-4">
+        Reservation
+      </p>
           <h1 className="font-serif text-5xl lg:text-6xl mb-6">
             Book Your Room Now...
           </h1>
