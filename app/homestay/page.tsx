@@ -32,43 +32,66 @@ export default function HomeStayPage() {
     <main className="bg-white">
 
          {/* ================= HERO BANNER ================= */}
-      <section
-        className="relative h-[60vh] w-full flex items-center justify-center"
-      >
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://q-xx.bstatic.com/xdata/images/hotel/840x460/502300217.jpg?k=c8f413f373f0b07422072549c21d8e6c0f6174488889bd4c3caa7053de615e5e&o=')" 
-            }}
-        />
+      <section className="relative h-[60vh] w-full flex items-center justify-center">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage:
+        "url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/623605945.jpg?k=7f654e381189e7f21818f6cb6eb9c2c3ae00fc7e7398319763181efde6896776&o=')",
+    }}
+  />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Text Content */}
-        <div className="relative text-center px-6 animate-heroFade">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
-              Siri Home Stay
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 mt-4 max-w-2xl mx-auto">
-           Peaceful nature stay near Udawalawe National Park — perfect for safari lovers
-          </p>
-        </div>
+  {/* Text Content */}
+  <div className="relative text-center px-6 animate-heroFade">
+    <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
+      Siri Home Stay
+    </h1>
 
-        {/* Hero Animation */}
-        <style>
-          {`
-            .animate-heroFade {
-              animation: heroFade 1.2s ease-out forwards;
-            }
-            @keyframes heroFade {
-              from { opacity: 0; transform: translateY(20px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-          `}
-        </style>
-      </section>
+    <p className="text-lg md:text-xl text-gray-200 mt-4 max-w-2xl mx-auto">
+      Peaceful nature stay near Udawalawe National Park — perfect for safari lovers
+    </p>
+
+    {/* BOOK NOW BUTTON */}
+    <a
+      href="#booking-form"
+      className="inline-block mt-8 px-8 py-3 bg-green-800 text-white font-semibold rounded-xl
+                 hover:bg-yellow-500 transition-all duration-300
+                 animate-btnFade"
+    >
+      Book Now
+    </a>
+  </div>
+
+  {/* Animations */}
+  <style>
+    {`
+      .animate-heroFade {
+        animation: heroFade 1.2s ease-out forwards;
+      }
+
+      .animate-btnFade {
+        opacity: 0;
+        animation: btnFade 1.2s ease-out forwards;
+        animation-delay: 0.6s;
+      }
+
+      @keyframes heroFade {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes btnFade {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `}
+  </style>
+</section>
+
 
       {/* ================= ABOUT ================= */}
       <section className="max-w-6xl mx-auto px-6 py-20">
@@ -81,6 +104,11 @@ export default function HomeStayPage() {
           Wake up to bird sounds, enjoy home-cooked Sri Lankan meals, and experience
           authentic village hospitality. Surrounded by peaceful paddy fields, and a beautiful natural landscape, ideal for families, couples, and wildlife photographers.
         </p>
+
+        <div className="space-y-6">
+  <p>Line one</p>
+  <p>Line two</p>
+</div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
@@ -213,12 +241,11 @@ export default function HomeStayPage() {
         </div>
       </section>
 
-       <section className="relative min-h-screen flex items-center justify-center text-white">
+       <section id="booking-form" className="relative min-h-screen flex items-center justify-center text-white">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8RuQzemdqEyNpVpTKO8fNUR15msrj5TLRbg&s')" }} // <-- replace with your image path
-      />
+        style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8RuQzemdqEyNpVpTKO8fNUR15msrj5TLRbg&s')"}}></div>
       
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
