@@ -69,7 +69,7 @@ export default function Contact() {
         className="col-span-2 input"
       />
 
-      <select className="col-span-2 input">
+      <select className="col-span-2 input text-gray-400">
         <option>SELECT INQUIRY TYPE</option>
         <option>Safari Booking</option>
         <option>Room / Accommodation</option>
@@ -94,18 +94,20 @@ export default function Contact() {
   </div>
 </section>
 
-      {/* ================= MAP ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
-          Find Us
-        </h2>
+      {/* ================= LOCATION ================= */}
+      <section className="bg-gray-100 py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            Find Us
+          </h2>
 
-        <div className="overflow-hidden rounded-3xl shadow-xl">
-          <iframe
-            src="https://www.google.com/maps?q=Udawalawe%20Sri%20Lanka&output=embed"
-            className="w-full h-[400px] border-0"
-            loading="lazy"
-          ></iframe>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps?q=Udawalawe%20National%20Park&output=embed"
+              className="w-full h-[400px]"
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </section>
 
