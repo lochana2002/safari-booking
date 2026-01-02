@@ -106,8 +106,6 @@ export default function HomeStayPage() {
         </p>
 
         <div className="space-y-6">
-  <p>Line one</p>
-  <p>Line two</p>
 </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
