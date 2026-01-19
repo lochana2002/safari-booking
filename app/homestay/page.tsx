@@ -51,16 +51,15 @@ export default function HomeStayPage() {
       Siri Home Stay
     </h1>
 
-    <p className="text-lg md:text-xl text-gray-200 mt-4 max-w-2xl mx-auto">
+    <p className="text-lg md:text-xl text-gray-200 mt-4 max-w-3xl mx-auto">
       Peaceful nature stay near Udawalawe National Park — perfect for safari lovers
     </p>
 
     {/* BOOK NOW BUTTON */}
     <a
       href="#booking-form"
-      className="inline-block mt-8 px-8 py-3 bg-green-800 text-white font-semibold rounded-xl
-                 hover:bg-yellow-500 transition-all duration-300
-                 animate-btnFade"
+       className="px-8 py-3 bg-green-900 hover:bg-green-700
+                 text-white font-semibold rounded-full shadow-lg transition"
     >
       Book Now
     </a>
@@ -92,25 +91,31 @@ export default function HomeStayPage() {
   </style>
 </section>
 
+{/* ================= ABOUT ================= */}
+<section
+  className="relative bg-cover bg-center"
+  style={{
+    backgroundImage:
+      "url('https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/623605967.jpg?k=44fbef164c0917587a80ad892f0427b4fa3b47d9f4a382ab085ff89297f57361&o=')",
+  }}
+>
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* ================= ABOUT ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-          About Our Homestay
-        </h2>
+  {/* CONTENT WRAPPER */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+    <h2 className="text-4xl font-bold text-center text-white mb-4">
+     About Our Homestay
+    </h2>
 
-        <p className="text-gray-600 text-lg leading-relaxed text-center max-w-4xl mx-auto ">
-          Our home stay is located just away from Udawalawe National Park.
+    <p className="text-center text-gray-200 mb-14 max-w-4xl mx-auto">
+       Our home stay is located just away from Udawalawe National Park.
           Wake up to bird sounds, enjoy home-cooked Sri Lankan meals, and experience
           authentic village hospitality. Surrounded by peaceful paddy fields, and a beautiful natural landscape, ideal for families, couples, and wildlife photographers.
-        </p>
+    </p>
 
-        <div className="space-y-6">
-</div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-          {[
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {[
             {
               title: "Comfortable Rooms",
               desc: "Tailored safari experiences designed to give you the best trip.",
@@ -136,22 +141,24 @@ export default function HomeStayPage() {
               desc: "Years of experience serving local and foreign travelers with care.",
               
             },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="group bg-white rounded-2xl shadow-xl p-8 border 
-                         hover:shadow-2xl transition duration-500 
-                         hover:-translate-y-2"
-            >
-              <h3 className="text-2xl font-semibold text-center text-gray-900 mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-600 text-center">{item.desc}</p>
-            </div>
-          ))}
-
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="border border-white/50 rounded-2xl p-8
+                     text-white bg-transparent
+                     transition duration-500 hover:-translate-y-2"
+        >
+          <h3 className="text-2xl font-semibold text-center mb-2">
+            {item.title}
+          </h3>
+          <p className="text-center text-gray-200">
+            {item.desc}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       
       {/* ================= THINGS TO DO ================= */}

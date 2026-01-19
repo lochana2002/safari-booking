@@ -111,7 +111,7 @@ export default function About() {
       Why Choose Us?
     </h2>
 
-    <p className="text-center text-gray-200 mb-14 max-w-2xl mx-auto">
+    <p className="text-center text-gray-200 mb-14 max-w-3xl mx-auto">
       We provide high-quality safari experiences with professional staff and
       excellent service you can trust.
     </p>

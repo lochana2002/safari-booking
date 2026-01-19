@@ -24,7 +24,7 @@ const ActivitySection: React.FC<ActivitySectionProps> = ({
       )}
       <div className="md:w-1/2 space-y-4">
         <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-600 text-justify">{description}</p>
       </div>
     </div>
   );

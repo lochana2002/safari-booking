@@ -27,7 +27,7 @@ export default function AnimalSection({
           {title}
         </h2>
 
-        <p className="text-gray-600 text-lg leading-relaxed">
+        <p className="text-gray-600 text-justify text-lg leading-relaxed">
           {description}
         </p>
 

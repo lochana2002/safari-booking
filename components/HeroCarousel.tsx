@@ -26,7 +26,7 @@ const slides = [
 export default function HeroCarousel() {
   const autoplay = useRef(
     Autoplay({
-      delay: 4000,
+      delay: 5000,
       stopOnInteraction: false,
     })
   );
