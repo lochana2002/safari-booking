@@ -1,8 +1,53 @@
+'use client';
+import {useState} from 'react'; 
 import PackageCard from "@/components/PackageCard";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export default function SafariPackages() {
+
+  const [loading, setLoading] = useState(false);
+const [success, setSuccess] = useState('');
+const [error, setError] = useState('');
+
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  setLoading(true);
+  setError('');
+  setSuccess('');
+
+  const formData = new FormData(e.currentTarget);
+
+  const bookingData = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    adults: Number(formData.get('adults')),
+    kids: Number(formData.get('kids')),
+    accommodationType: formData.get('accommodationType'),
+    message: formData.get('message'),
+  };
+
+  try {
+    const res = await fetch('http://localhost:4000/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bookingData),
+    });
+
+    if (!res.ok) throw new Error('Failed');
+
+    setSuccess('Booking submitted successfully!');
+    e.currentTarget.reset();
+  } catch (err) {
+    setError('Booking failed. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+}
+
   return (
     <main className="bg-white min-h-screen w-full">
 
@@ -194,21 +239,38 @@ export default function SafariPackages() {
     </div>
 
     {/* FORM */}
-    <form className="backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4">
-      <input type="text" placeholder="NAME" className="col-span-2 input" />
-      <input type="email" placeholder="EMAIL ADDRESS" className="col-span-2 input" />
-      <input type="tel" placeholder="PHONE NUMBER" className="col-span-2 input" />
-      <input type="number" placeholder="NO OF ADULTS" className="input" />
-      <input type="number" placeholder="NO OF KIDS" className="input" />
-      <input type="text" placeholder="COUNTRY" className="input" />
-      <input type="text" placeholder=" ACCOMMODATION TYPE" className="input" />
-      <textarea rows={4} placeholder="MESSAGE" className="col-span-2 input resize-none" />
+    <form onSubmit={handleSubmit}
+      className="backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4">
+     <input name="name" type="text" placeholder="NAME" className="col-span-2 input" />
+
+<input name="email" type="email" placeholder="EMAIL ADDRESS" className="col-span-2 input" />
+
+<input name="phone" type="tel" placeholder="PHONE NUMBER" className="col-span-2 input" />
+
+<input name="adults" type="number" placeholder="NO OF ADULTS" className="input" />
+
+<input name="kids" type="number" placeholder="NO OF KIDS" className="input" />
+
+<input name="accommodationType" type="text" placeholder="ACCOMMODATION TYPE" className="input" />
+
+<textarea
+  name="message"
+  rows={4}
+  placeholder="MESSAGE"
+  className="col-span-2 input resize-none"
+/>
       <button
-        type="submit"
-        className="col-span-2 mt-4 border border-white px-8 py-3 uppercase tracking-widest hover:bg-white hover:text-black transition"
-      >
-        Submit
-      </button>
+  type="submit"
+  disabled={loading}
+  className="col-span-2 mt-4 border border-white px-8 py-3 uppercase tracking-widest hover:bg-white hover:text-black transition disabled:opacity-50"
+>
+  {loading ? 'Submitting...' : 'Submit'}
+</button>
+
+{success && <p className="col-span-2 text-green-400 text-center">{success}</p>}
+{error && <p className="col-span-2 text-red-400 text-center">{error}</p>}
+
+
     </form>
   </div>
 </section>
