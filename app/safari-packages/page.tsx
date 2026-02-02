@@ -1,20 +1,20 @@
 'use client';
-import {useState} from 'react'; 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import PackageCard from "@/components/PackageCard";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export default function SafariPackages() {
 
-  const [loading, setLoading] = useState(false);
-const [success, setSuccess] = useState('');
+const [loading, setLoading] = useState(false);
+const router = useRouter();
 const [error, setError] = useState('');
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setLoading(true);
   setError('');
-  setSuccess('');
 
   const formData = new FormData(e.currentTarget);
 
@@ -36,16 +36,20 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       body: JSON.stringify(payload),
     });
 
-    if (!res.ok) throw new Error('Booking failed');
+    if (!res.ok) {
+      throw new Error('Booking failed');
+    }
 
-    setSuccess('Booking successful!');
-    e.currentTarget.reset();
+    // ✅ Redirect after successful booking
+    router.push('/thank-you');
+
   } catch (err) {
     setError('Failed to submit booking');
   } finally {
     setLoading(false);
   }
 };
+
 
   return (
     <main className="bg-white min-h-screen w-full">
@@ -280,9 +284,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   {loading ? 'Submitting...' : 'Submit'}
 </button>
 
-{success && <p className="col-span-2 text-green-400 text-center">{success}</p>}
 {error && <p className="col-span-2 text-red-400 text-center">{error}</p>}
-
 
     </form>
   </div>
