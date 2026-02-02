@@ -10,7 +10,7 @@ export default function SafariPackages() {
 const [success, setSuccess] = useState('');
 const [error, setError] = useState('');
 
-async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setLoading(true);
   setError('');
@@ -18,12 +18,13 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 
   const formData = new FormData(e.currentTarget);
 
-  const bookingData = {
+  const payload = {
     name: formData.get('name'),
     email: formData.get('email'),
     phone: formData.get('phone'),
     adults: Number(formData.get('adults')),
     kids: Number(formData.get('kids')),
+    country: formData.get('country'),
     accommodationType: formData.get('accommodationType'),
     message: formData.get('message'),
   };
@@ -31,22 +32,20 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   try {
     const res = await fetch('http://localhost:4000/bookings', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(bookingData),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
     });
 
-    if (!res.ok) throw new Error('Failed');
+    if (!res.ok) throw new Error('Booking failed');
 
-    setSuccess('Booking submitted successfully!');
+    setSuccess('Booking successful!');
     e.currentTarget.reset();
   } catch (err) {
-    setError('Booking failed. Please try again.');
+    setError('Failed to submit booking');
   } finally {
     setLoading(false);
   }
-}
+};
 
   return (
     <main className="bg-white min-h-screen w-full">
@@ -251,7 +250,21 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 
 <input name="kids" type="number" placeholder="NO OF KIDS" className="input" />
 
-<input name="accommodationType" type="text" placeholder="ACCOMMODATION TYPE" className="input" />
+<select name="country" required className="input">
+  <option value="">SELECT COUNTRY</option>
+  <option value="Sri Lanka">Sri Lanka</option>
+  <option value="India">India</option>
+  <option value="UK">UK</option>
+  <option value="Australia">Australia</option>
+  <option value="Other">Other</option>
+</select>
+
+<select name="accommodationType" required className="input">
+  <option value="">ACCOMMODATION TYPE</option>
+  <option value="Homestay">Homestay</option>
+  <option value="Bungalow">Bungalow</option>
+  <option value="Hotel">Hotel</option>
+</select>
 
 <textarea
   name="message"
