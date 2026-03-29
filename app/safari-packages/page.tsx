@@ -13,6 +13,10 @@ const [error, setError] = useState('');
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+
+    // 🔒 HARD BLOCK double submit
+  if (loading) return;
+
   setLoading(true);
   setError('');
 
@@ -50,6 +54,16 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 };
 
+{loading && (
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div className="flex flex-col items-center gap-4">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-white border-t-transparent" />
+      <p className="text-white tracking-widest text-sm uppercase">
+        Processing Booking...
+      </p>
+    </div>
+  </div>
+)}
 
   return (
     <main className="bg-white min-h-screen w-full">
@@ -244,17 +258,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     {/* FORM */}
     <form onSubmit={handleSubmit}
       className="backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4">
-     <input name="name" type="text" placeholder="NAME" className="col-span-2 input" />
+     <input name="name" type="text" placeholder="NAME" className="col-span-2 input" disabled={loading} />
 
-<input name="email" type="email" placeholder="EMAIL ADDRESS" className="col-span-2 input" />
+<input name="email" type="email" placeholder="EMAIL ADDRESS" className="col-span-2 input" disabled={loading}/>
 
-<input name="phone" type="tel" placeholder="PHONE NUMBER" className="col-span-2 input" />
+<input name="phone" type="tel" placeholder="PHONE NUMBER" className="col-span-2 input" disabled={loading}/>
 
-<input name="adults" type="number" placeholder="NO OF ADULTS" className="input" />
+<input name="adults" type="number" placeholder="NO OF ADULTS" className="input" disabled={loading}/>
 
-<input name="kids" type="number" placeholder="NO OF KIDS" className="input" />
+<input name="kids" type="number" placeholder="NO OF KIDS" className="input" disabled={loading}/>
 
-<select name="country" required className="input">
+<select name="country" required className="input text-gray-400" disabled={loading}>
   <option value="">SELECT COUNTRY</option>
   <option value="Sri Lanka">Sri Lanka</option>
   <option value="India">India</option>
@@ -263,7 +277,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   <option value="Other">Other</option>
 </select>
 
-<select name="accommodationType" required className="input">
+<select name="accommodationType" required className="input text-gray-400" disabled={loading}>
   <option value="">ACCOMMODATION TYPE</option>
   <option value="Homestay">Homestay</option>
   <option value="Bungalow">Bungalow</option>
@@ -274,7 +288,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   name="message"
   rows={4}
   placeholder="MESSAGE"
-  className="col-span-2 input resize-none"
+  className="col-span-2 input resize-none" disabled={loading}
 />
       <button
   type="submit"
