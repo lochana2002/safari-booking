@@ -3,7 +3,7 @@ export const homestayRooms = {
     name: "Family Room",
     price: 12000,
     guests: 4,
-    images: ["/rooms/family.jpg", "/rooms/family-2.jpg", "/rooms/family-3.jpg"],
+    images: ["https://i.ytimg.com/vi/3KtSKAStHgM/maxresdefault.jpg"],
     description:
       "Spacious luxury family room surrounded by paddy fields, offering comfort, privacy, and peaceful village views.",
   },
