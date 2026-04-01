@@ -1,52 +1,64 @@
+  "use client";
   import HeroCarousel from "../components/HeroCarousel";
-
+  import { useState } from "react";
 
   export default function Home() {
 
-    // Reusable wildlife section component
-    const AnimalSection = ({ title, description, image, reverse, link }) => {
-      return (
-        <div
-          className={`grid md:grid-cols-2 gap-16 items-center ${
-            reverse ? "md:[direction:rtl]" : ""
-          }`}
-        >
-          {/* Text */}
-<div className="space-y-6 [direction:ltr]">
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-    {title}
-  </h2>
 
-  <p className="text-gray-600 text-lg leading-relaxed">
-    {description}{" "}
-    <a
-      href={link || "/wildlife"}
-      className="text-green-800 font-semibold hover:underline"
+  const AnimalSection = ({ title, description, image, reverse }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const limit = 160; // adjust text limit
+  const isLong = description.length > limit;
+
+  return (
+    <div
+      className={`grid md:grid-cols-2 gap-16 items-center ${
+        reverse ? "md:[direction:rtl]" : ""
+      }`}
     >
-      View more →
-    </a>
-  </p>
-</div>
-          {/* Image */}
-          <div>
-           <img
-  src={image}
-  alt={title}
-  className="
-    w-full 
-    h-[220px] 
-    md:h-[260px] 
-    object-cover 
-    rounded-xl 
-    shadow-lg
-  "
-  loading="lazy"
-/>
+      {/* Text */}
+      <div className="space-y-6 [direction:ltr]">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          {title}
+        </h2>
 
-          </div>
-        </div>
-      );
-    };
+        <p className="text-gray-600 text-lg leading-relaxed">
+          {expanded || !isLong
+            ? description
+            : description.slice(0, limit) + "..."}
+        </p>
+
+        {/* Read More Button */}
+        {isLong && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="text-green-800 font-semibold hover:underline"
+          >
+            {expanded ? "Read Less ▲" : "Read More ▼"}
+          </button>
+        )}
+      </div>
+
+      {/* Image */}
+      <div>
+        <img
+          src={image}
+          alt={title}
+          className="
+            w-full 
+            h-[220px] 
+            md:h-[260px] 
+            object-cover 
+            rounded-xl 
+            shadow-lg
+          "
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+};
 
     return (
       <main className="bg-white min-h-screen w-full">
@@ -88,47 +100,47 @@
 
           <AnimalSection 
             title="Asian Elephants"
-            description="Udawalawe is home to over 600 wild elephants, making it one of the best places in the world to witness them in natural herds. Visitors often see mothers with calves, playful juveniles, and majestic adults roaming the grasslands."
+            description="Udawalawe National Park is a premier Sri Lankan sanctuary renowned for its large population of wild Asian elephants, offering near-guaranteed sightings of 600–700+ residents. These, primarily the Sri Lankan subspecies (), are highly sociable, often seen in herds grazing in grasslands or bathing in the reservoir. 
+Key Characteristics & Behaviors:
+Population: Often regarded as the best place in Sri Lanka to see wild elephants, with herds commonly observed, especially during the dry season.
+Subspecies: The Sri Lankan elephant is the largest among Asian elephants.
+Appearance: They are darker with distinct patches of depigmentation (light pink/white skin) on their ears, face, and trunk. Most adult males in this region do not have large tusks.
+Behavior: Visitors frequently observe family units, including calves, foraging in the scrubland or gathering near the Udawalawe Reservoir.
+Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which rehabilitates orphaned calves for release back into the wild."
             image="https://srilankatravelpages.com/my_content/uploads/2023/01/Safari-at-Udawalawe-National-Park.jpg"
-            link="https://www.google.com/search?num=12&sca_esv=7a0616c681a8c1ce&biw=1536&bih=730&sxsrf=AE3TifNwVPeLpnHTGxNjgkpvuhQMifynFw:1765871192286&q=asian+elephants+udawalawe+national+park&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOhZS8MA-siX0k7PIasuZieEw14M7UD0tohisAhRzHKZKbhzIR_nHYiQKQ5uSxMY0LmduGcinHTimiZZ5rqafr57YJLiXaxJso7_ydGLdROecWj22Tn-o6hBASyKjiDOK9lcUSvB2UASJPOSzqxPjEMD0zNIwjA&sa=X&ved=2ahUKEwiPoorpzsGRAxX3bfUHHfb1LusQ0pQJegQIEhAB"
-          />
+            />
 
           <AnimalSection
             title="Sri Lankan Leopards"
-            description="Leopards are rare but unforgettable. These elusive predators roam Udawalawe’s dense bushes and rocky areas. Early morning safaris give you the best chance to spot one."
+            description="Where to spot leopards in Sri Lanka | Intrepid Travel BlogSri Lankan leopards (Panthera pardus kotiya) in Udawalawe National Park are rare, elusive, and less commonly spotted compared to Yala National Park, but they do exist in this dry zone ecosystem. As the island's top predator, they inhabit scrub jungles and prey on deer, monkeys, and wild boar, often spotted in the early morning or late evening." 
             image="https://lakpura.com/cdn/shop/products/LK60400100-04-E-1280-720.jpg?v=1624589437&width=1445"
             reverse
-            link="/wildlife/leopards"
           />
 
           <AnimalSection
             title="Mugger Crocodiles"
-            description="Udawalawe’s lakes and waterholes are populated by mugger crocodiles. You’ll often spot them sunbathing on riverbanks or gliding silently through the water."
+            description="Mugger crocodiles (Crocodylus palustris), also known as marsh crocodiles, are large, dark grey/brown freshwater reptiles frequently seen basking on the banks of the Walawe River and the main reservoir in Udawalawe National Park. As top predators in this ecosystem, they are notorious for growing continuously throughout their 40–70 year lifespans. "
             image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLg77HAMako-whhLCagzzTbnKYXASlnRt49Q&s"
-            link="https://www.google.com/search?q=umugger+crocodiles+in+udawalawe+national+park&oq=uMugger+Crocodiles+in+U&gs_lcrp=EgZjaHJvbWUqCQgBECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgcIBBAhGI8CMgcIBRAhGI8C0gEIODI4MWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
-          />
+            />
 
           <AnimalSection
             title="Spotted Deer"
             description="Graceful spotted deer are commonly seen grazing in open fields or wandering through forest patches. Their elegant movements make them a favorite among wildlife enthusiasts."
             image="https://lakpura.com/cdn/shop/products/LK50A01000-05-E_6d95534e-1e1b-4755-ad7a-2123c7f55aef.jpg?v=1647864879&width=1445"
             reverse
-            link="/wildlife/deer"
           />
 
           <AnimalSection
             title="Over 200 Bird Species"
-            description="Udawalawe is a paradise for bird lovers with eagles, owls, bee-eaters, kingfishers, and many migratory species filling the skies and trees."
+            description="Udawalawe National Park is a premier birdwatching destination in Sri Lanka, boasting over 180 recorded species, including 33 migratory and several endemics. The park’s mix of dry zone scrub, grasslands, and the large Udawalawe Reservoir attracts a high concentration of water birds, raptors, and colorful dry-zone species."
             image="https://www.srilankabirdwatchingtours.com/images/bird-watching-sites-in-sri-lanka/udawalawe-national-park/03.jpg"
-            link="https://www.google.com/search?sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifPCNsNEsirKqCKeg3GqBNN0TdoNqg:1765871367364&q=udawalawe+national+park+birds&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeuYzzFkfneXafNx6OMdA4MTXyu5H4ujQUk9NJfWNLZkpoIVdtbbGRl_5hUmh4qcft-7jZjAizP-oICnEdG9KwdFzJb3c8brhzc-5i4IQHyDOgRHbUFUt3Yazy85Z0Ub47_6h4C3tH7uzHru2eVDXw83556AkbTUwlei5H9mmd2VC7yLUPg&sa=X&ved=2ahUKEwjbnci8z8GRAxXXnK8BHYVPHbcQ0pQJegQIERAB"
-          />
+                  />
 
            <AnimalSection
             title="Monkeys"
             description="Graceful spotted deer are commonly seen grazing in open fields or wandering through forest patches. Their elegant movements make them a favorite among wildlife enthusiasts."
             image="https://cdn.audleytravel.com/1050/750/79/16027168-family-of-tufted-gray-langurs-udawalawe-national-park.webp"
             reverse
-            link="/wildlife/deer"
           />
 
         <p className="text-center text-lg text-gray-600 max-w-10xl mx-auto mb-12">

@@ -1,11 +1,10 @@
-import Link from "next/link";
+import { useState } from "react";
 
 interface Props {
   title: string;
   description: string;
   image: string;
   reverse?: boolean;
-  link?: string;
 }
 
 export default function AnimalSection({
@@ -13,8 +12,12 @@ export default function AnimalSection({
   description,
   image,
   reverse,
-  link,
 }: Props) {
+  const [expanded, setExpanded] = useState(false);
+
+  const limit = 160;
+  const isLong = description.length > limit;
+
   return (
     <div
       className={`grid md:grid-cols-2 gap-16 items-center ${
@@ -28,17 +31,19 @@ export default function AnimalSection({
         </h2>
 
         <p className="text-gray-600 text-justify text-lg leading-relaxed">
-          {description}
+          {expanded || !isLong
+            ? description
+            : description.slice(0, limit) + "..."}
         </p>
 
-        {link && (
-          <Link
-            href={link}
-            className="inline-block px-8 py-3 bg-[#899b22] hover:bg-[#70841a] 
-                       text-white font-semibold rounded-full shadow-lg transition"
+        {/* Read More Button */}
+        {isLong && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="text-[#899b22] font-semibold hover:underline"
           >
-            View More
-          </Link>
+            {expanded ? "Read Less ▲" : "Read More ▼"}
+          </button>
         )}
       </div>
 
