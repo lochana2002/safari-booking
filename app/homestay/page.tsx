@@ -45,12 +45,27 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
   });
 };
 
+fetch(`${process.env.NEXT_PUBLIC_API_URL}/room-bookings`)
+
+const [success, setSuccess] = useState(false);
+const [error, setError] = useState("");
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+
+  setError("");
+  setSuccess(false);
+
+  // ✅ Frontend validation
+  if (!form.name || !form.email || !form.phone) {
+    setError("Please fill all required fields");
+    return;
+  }
+
+  setLoading(true);
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:4001/room-bookings", {
+    const res = await fetch("http://localhost:4000/room-bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,13 +77,13 @@ const handleSubmit = async (e: React.FormEvent) => {
   adults: Number(form.adults),
   kids: Number(form.kids),
   country: form.country,
-  roomType: form.room, // ✅ FIXED
+  roomType: form.room, 
   message: form.message,
 }),
     });
 
     if (res.ok) {
-      alert("✅ Booking submitted successfully!");
+     setSuccess(true);
       setForm({
         name: "",
         email: "",
@@ -80,11 +95,11 @@ const handleSubmit = async (e: React.FormEvent) => {
         message: "",
       });
     } else {
-      alert("❌ Failed to submit");
+      setError("Failed to submit booking");
     }
   } catch (err) {
     console.error(err);
-    alert("❌ Server error");
+    setError("Server error. Please try again.");
   }
 
   setLoading(false);
@@ -164,7 +179,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   <ActivitySection
     title="Cooking Traditional Sri Lankan Meals"
     description="Join our hosts in the homestay kitchen and discover the secrets of authentic Sri Lankan cuisine. You’ll learn to prepare traditional dishes from scratch, using fresh, locally sourced ingredients such as coconut, spices, and seasonal vegetables. Experience hands-on cooking, from grinding spices in a mortar and pestle to rolling out dough for roti or preparing a fragrant curry. After cooking, enjoy a delicious meal together, savoring the flavors of Sri Lanka while hearing stories about local culinary traditions and village life. This activity is perfect for food lovers, families, and anyone who wants an immersive cultural experience."
-    image="https://www.gokitetours.com/wp-content/uploads/2024/02/5-Traditional-Sri-Lankan-Dishes-to-Try.webp"
+    image="https://udawalaweneiljeepsafari.com/wp-content/uploads/2024/02/udawalawe_neel_jeep_safari_village-tour.jpg"
     link="/activities/cooking"
   />
 
@@ -177,7 +192,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   <ActivitySection
     title="Village Life Experience"
     description="Immerse yourself in the authentic rhythm of Sri Lankan village life. Spend time with local villagers as they go about their daily routines—cooking, crafting, and caring for their farms. Participate in hands-on activities such as feeding farm animals, helping with simple chores, or learning traditional crafts like weaving or pottery. Hear fascinating stories about local customs, festivals, and traditions that have been passed down for generations. This experience allows you to connect with the community, gain a deeper understanding of rural life, and appreciate the simplicity, warmth, and hospitality of village living. Perfect for families, cultural enthusiasts, and travelers seeking a genuine local experience."
-    image="https://www.srilankaauthenticholidays.com/wp-content/uploads/2023/12/Homestay-in-rural-Sri-Lanka.png" />
+    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnaPUky2p-b-2TVOVEHmqqVQoSBeIj_GbtVQ&s" />
 
   <ActivitySection
     title="Photography & Sunset Views"
@@ -295,7 +310,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                 <Link
   href={`/homestay/${room.name.toLowerCase().replace(/\s+/g, "-")}`}
-  className="block text-center px-6 py-3 bg-green-600 hover:bg-green-700
+  className="block text-center px-6 py-3 bg-green-900 hover:bg-green-700
              text-white font-semibold rounded-full shadow-md transition"
 >
   View Room Details
@@ -311,7 +326,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8RuQzemdqEyNpVpTKO8fNUR15msrj5TLRbg&s')"}}></div>
+        style={{ backgroundImage: "url('https://5.imimg.com/data5/ANDROID/Default/2021/1/VL/CD/YX/8880463/product-jpeg-500x500.jpg')"}}></div>
       
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
@@ -353,6 +368,18 @@ const handleSubmit = async (e: React.FormEvent) => {
   <input name="room" value={form.room} onChange={handleChange} placeholder="ROOM" className="input" />
 
   <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="MESSAGE" className="col-span-2 input resize-none" />
+
+{success && (
+  <p className="text-green-400 col-span-2">
+    ✅ Booking submitted successfully!
+  </p>
+)}
+
+{error && (
+  <p className="text-red-400 col-span-2">
+    ❌ {error}
+  </p>
+)}
 
  <button
   type="submit"

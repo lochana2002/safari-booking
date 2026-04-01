@@ -12,7 +12,7 @@ export default function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://travel-buddies.com/wp-content/uploads/2025/06/from-colombo-udawalawe-national-park-private-jeep-safari.jpg')"}}
+            backgroundImage: "url('https://www.ceylontraveldream.com/images/sri-lanka-tour-packages/location/kaudulla-national-park-002.jpg')"}}
         />
 
         {/* Dark Overlay */}
@@ -62,7 +62,7 @@ export default function About() {
   {/* Image */}
   <div className="rounded-2xl overflow-hidden shadow-lg">
     <img
-      src="https://media3.thrillophilia.com/filestore/u4iv0leyh7cspqn55c98kbnu7ir4_shutterstock_1427710394.jpg"
+      src="https://fernandotravels.com.au/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fudawalawa-header-one.be2af54b.jpg&w=3840&q=75://media3.thrillophilia.com/filestore/u4iv0leyh7cspqn55c98kbnu7ir4_shutterstock_1427710394.jpg"
       alt="Our Vision"
       className="w-full h-full object-cover"
     />
