@@ -5,7 +5,7 @@ const packages = {
   "three-hour-safari": {
     title: "Three-Hour Safari",
     price: "Rs. 12,000",
-    image: "/morning.webp",
+    image: "/images/morning.webp",
     description:
       "Perfect for early morning wildlife sightings including elephants, birds, and other animals in Udawalawe National Park.",
 
@@ -48,7 +48,7 @@ const packages = {
   "half-day-safari": {
     title: "Half-Day Safari",
     price: "Rs. 15,000",
-    image: "/evening.jpg",
+    image: "/images/halfday.jpg",
     description:
       "Enjoy beautiful lighting and cooler temperatures during the afternoon safari.",
 
@@ -63,7 +63,7 @@ const packages = {
   "full-day-safari": {
     title: "Full-Day Safari",
     price: "Rs. 22,000",
-    image: "/full.webp",
+    image: "/images/fullday.jpg",
     description:
       "Spend the entire day exploring Udawalawe National Park with maximum wildlife opportunities.",
 
