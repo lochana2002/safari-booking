@@ -17,7 +17,7 @@ const slides = [
     tagline: "Ethical, safe, and breathtaking wildlife encounters",
   },
   {
-    src: "https://cdn.getyourguide.com/img/tour/5c14bc3f50a6c8858008d206bad7303aea76f402762cab2ec3b830ceca7a0aeb.jpg/68.jpg",
+    src: "https://komadu.com/wp-content/uploads/2018/Tours/Udawalawe/Udawalawe-Family-watching-elephants.jpg",
     text: "Experience Sri Lankan Wildlife",
     tagline: "Nature, adventure, and serenity in one place",
   },
@@ -95,7 +95,7 @@ export default function HeroCarousel() {
   >
     <a
       href="/safari-packages/#booking-form"
-      className="px-8 py-3 bg-green-800 hover:bg-green-700
+      className="px-8 py-3 bg-green-900 hover:bg-green-700
                  text-white font-semibold rounded-full shadow-lg transition"
     >
       Book Now
@@ -130,8 +130,8 @@ export default function HeroCarousel() {
           <button
             key={i}
             onClick={() => emblaApi?.scrollTo(i)}
-            className={`w-3 h-3 rounded-full transition ${
-              selected === i ? "bg-white" : "bg-white/50"
+            className={`w-1 h-1 rounded-full transition ${
+              selected === i ? "bg-white" : "bg-white/40"
             }`}
           />
         ))}
