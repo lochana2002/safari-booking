@@ -158,7 +158,7 @@ export default async function Page({
 
          <div className="grid md:grid-cols-2 gap-8">
 
-  <div className="grid md:grid-cols-4 w-5xl gap-8">
+  <div className="grid md:grid-cols-4 w-7xl gap-8">
 
   {[ 
     { title: "✔ Includes", data: safariPackage.includes, color: "text-green-700" },

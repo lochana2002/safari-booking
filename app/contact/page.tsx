@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -19,8 +20,6 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`)
-  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -52,6 +51,7 @@ export default function Contact() {
 
   return (
     <main className="bg-white min-h-screen w-full">
+
       <section
         id="contact-us"
         className="relative min-h-screen flex items-center justify-center text-white"
@@ -61,7 +61,8 @@ export default function Contact() {
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage:
-              "url('https://mybreezily.com/wp-content/uploads/2024/10/pngtree-businesswoman-using-contact-icon-interface-photo-image_29649620.jpg')"  }}
+              "url('https://mybreezily.com/wp-content/uploads/2024/10/pngtree-businesswoman-using-contact-icon-interface-photo-image_29649620.jpg')",
+          }}
         />
 
         {/* Overlay */}
@@ -70,7 +71,7 @@ export default function Contact() {
         <div className="relative z-20 max-w-7xl w-full px-6 grid lg:grid-cols-2 gap-16 items-center">
           
           {/* LEFT CONTENT */}
-          <div>
+          <div className="animate-heroFade">
             <p className="uppercase tracking-widest text-sm text-gray-300 mb-4">
               Contact Us
             </p>
@@ -95,7 +96,7 @@ export default function Contact() {
           {/* FORM */}
           <form
             onSubmit={handleSubmit}
-            className="backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4"
+            className="animate-heroFade delay-1 backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4"
           >
             <input
               name="name"
@@ -163,9 +164,11 @@ export default function Contact() {
       {/* MAP */}
       <section className="bg-gray-100 py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl text-center mb-8">Find Us</h2>
+          <h2 className="text-3xl text-center mb-8 animate-heroFade">
+            Find Us
+          </h2>
 
-          <div className="rounded-2xl overflow-hidden shadow-lg">
+          <div className="rounded-2xl overflow-hidden shadow-lg animate-heroFade delay-1">
             <iframe
               src="https://www.google.com/maps?q=Udawalawe%20National%20Park&output=embed"
               className="w-full h-[400px]"
@@ -174,6 +177,32 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* ANIMATION STYLE */}
+      <style>
+        {`
+          .animate-heroFade {
+            opacity: 0;
+            animation: heroFade 1.2s ease-out forwards;
+          }
+
+          .delay-1 {
+            animation-delay: 0.3s;
+          }
+
+          @keyframes heroFade {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
+
     </main>
   );
 }
