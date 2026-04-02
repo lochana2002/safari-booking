@@ -1,5 +1,7 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const packages = {
   "three-hour-safari": {
@@ -89,6 +91,15 @@ export default async function Page({
     return <h1 className="text-center mt-20">Package Not Found</h1>;
   }
 
+  const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
+};
+
   return (
     <main className="bg-white min-h-screen">
 
@@ -113,7 +124,14 @@ export default async function Page({
       </section>
 
       {/* MAIN CONTENT */}
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
+             <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  className="relative text-center space-y-3 px-6 py-20
+             bg-gradient-to-b from-green-50 to-white"
+>
 
         {/* LEFT SIDE */}
         <div className="space-y-8">
@@ -192,7 +210,7 @@ export default async function Page({
 
         </div>
 
-      </section>
+      </motion.section>
     </main>
   );
 }

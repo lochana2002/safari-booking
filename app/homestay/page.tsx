@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ActivitySection from "@/components/ActivitySection";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function HomeStayPage() {
   const rooms = [
@@ -43,6 +44,15 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
     ...form,
     [e.target.name]: e.target.value,
   });
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
 };
 
 fetch(`${process.env.NEXT_PUBLIC_API_URL}/room-bookings`)
@@ -171,7 +181,15 @@ const handleSubmit = async (e: React.FormEvent) => {
 </section>
       
       {/* ================= THINGS TO DO ================= */}
-<section className="max-w-7xl mx-auto px-6 py-20 space-y-10">
+ <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  className="relative max-w-7xl mx-auto text-center space-y-3 px-6 py-20
+             bg-gradient-to-b from-green-50 to-white"
+>
+
   <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
     Things to Do Around Our Homestay
   </h2>
@@ -199,7 +217,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     description="Experience the magic of the countryside through your lens as the day unfolds. Wander through lush paddy fields, rustic village corners, and the surrounding natural landscapes to capture vivid photographs of local wildlife, traditional farming scenes, and everyday village life. As the sun begins to set, watch the sky transform into a breathtaking canvas of warm hues—gold, pink, and purple—reflecting over the fields and creating picture-perfect moments. Whether you’re an avid photographer or simply enjoy scenic views, this activity offers a serene and inspiring way to connect with nature, unwind, and preserve the beauty of your homestay experience forever."
     image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSVSBvCEr4bQ97AZBn5jrlzN0itAidh_0wSA&s"   reverse
   />
-</section>
+</motion.section>
 
 
 {/* ================= ABOUT ================= */}
@@ -272,7 +290,14 @@ const handleSubmit = async (e: React.FormEvent) => {
 </section>
 
       {/* ================= ROOMS ================= */}
-      <section className="bg-gray-50 py-20">
+      <motion.section
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative text-center space-y-3 px-6 py-20
+                   bg-gradient-to-b from-green-50 to-white"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Our Rooms
@@ -320,7 +345,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
        <section id="booking-form" className="relative min-h-screen flex items-center justify-center text-white">
       {/* Background Image */}
@@ -394,7 +419,14 @@ const handleSubmit = async (e: React.FormEvent) => {
     
 
       {/* ================= SAFARI COMBO ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
+         <motion.section
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative text-center space-y-3 px-6 py-20
+                   bg-gradient-to-b from-green-50 to-white"
+      >
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Safari + Stay Packages
         </h2>
@@ -410,7 +442,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         >
           View Safari Packages
         </a>
-      </section>
+      </motion.section>
 
       {/* ================= LOCATION ================= */}
       <section className="bg-gray-100 py-20">

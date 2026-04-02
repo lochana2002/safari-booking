@@ -1,9 +1,18 @@
   "use client";
   import HeroCarousel from "../components/HeroCarousel";
   import { useState } from "react";
+  import { motion } from "framer-motion";
 
   export default function Home() {
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
+};
 
   const AnimalSection = ({ title, description, image, reverse }) => {
   const [expanded, setExpanded] = useState(false);
@@ -68,32 +77,42 @@
           <HeroCarousel />
         </section>
 
-        {/* INTRO */}
-       <section className="relative text-center space-y-3 px-6 py-20
-                   bg-gradient-to-b from-green-50 to-white">
+        <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  className="relative text-center space-y-3 px-6 py-20
+             bg-gradient-to-b from-green-50 to-white"
+>
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+    Book Your Wildlife Adventure
+  </h2>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Book Your Wildlife Adventure
-          </h2>
+  <p className="text-gray-600 text-lg leading-relaxed">
+    Discover Sri Lanka’s incredible wildlife sanctuary. Witness majestic
+    elephants, exotic birds, crocodiles, and the stunning grasslands of
+    Udawalawe — guided by local experts who know the park best.
+  </p>
 
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Discover Sri Lanka’s incredible wildlife sanctuary. Witness majestic
-            elephants, exotic birds, crocodiles, and the stunning grasslands of
-            Udawalawe — guided by local experts who know the park best.
-          </p>
-
-          <div className="flex justify-center">
-            <a
-              href="/safari-packages"
-              className="px-8 py-3 mt-4 bg-green-900 hover:bg-green-700 text-white text-lg font-medium rounded-full shadow-lg transition"
-            >
-              View Safari Packages
-            </a>
-          </div>
-        </section>
+  <div className="flex justify-center">
+    <a
+      href="/safari-packages"
+      className="px-8 py-3 mt-4 bg-green-900 hover:bg-green-700 text-white text-lg font-medium rounded-full shadow-lg transition"
+    >
+      View Safari Packages
+    </a>
+  </div>
+</motion.section>
 
         {/* WILDLIFE SECTIONS */}
-        <section className="max-w-7xl mx-auto px-6 py-20 space-y-10">
+       <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
+>
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
             Wildlife You Will See in Udawalawe
           </h2>
@@ -149,11 +168,16 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
   lizards, and many other reptiles and mammals that thrive in its diverse
   habitats.
 </p>
-        </section>
+       </motion.section>
 
           {/* 🏡 BUNGALOWS SECTION */}   
-      <section id="bungalows" className="max-w-7xl mx-auto px-6 py-20 space-y-20">
-
+       <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
+>
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
             Stay Inside Udawalawe National Park
           </h2>
@@ -185,10 +209,17 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
             image="https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg"
             link="https://www.google.com/search?q=Senuggala+Bungalow+at+udawalawe+national+park&sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifPmPzgpqzQA135rgdf9Zub62dXMcw%3A1765871660027&ei=LBBBadS2AYqfvr0PnNSwoAs&ved=2ahUKEwjU_I7I0MGRAxWKj68BHRwqDLQQ4dUDegQIBRAN&uact=5&oq=Senuggala+Bungalow+at+udawalawe+national+park&gs_lp=Egxnd3Mtd2l6LXNlcnAiLVNlbnVnZ2FsYSBCdW5nYWxvdyBhdCB1ZGF3YWxhd2UgbmF0aW9uYWwgcGFyazIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIIEAAYgAQYogQyCBAAGIAEGKIESKHSAVCKvAFYw8UBcAJ4AZABAJgBiQKgAesHqgEDMi00uAEDyAEA-AEB-AECmAIGoAKgCMICChAAGLADGNYEGEfCAgoQABgFGAcYChgewgIIEAAYBRgHGB7CAgsQABiABBiGAxiKBcICBhAAGAcYHsICCBAAGAcYChgemAMAiAYBkAYIkgcFMi4wLjSgB-EUsgcDMi00uAeMCMIHBTItNC4yyAclgAgA&sclient=gws-wiz-serp"
           />
-        </section>
+         </motion.section>
 
-               
-        <section id="other" className="max-w-7xl mx-auto px-6 py-20">
+          // others     
+        <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20"
+>
+
              <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
                Other Places to Visit
              </h2>
@@ -266,31 +297,20 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
       </div>
     ))}
   </div>
-</section>
+</motion.section>
 
  {/* Homestay */}
-         <section id="homestay" className="relative text-center px-6 py-20
-             bg-gradient-to-b from-green-50 to-white"
+    <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20"
 >
-  <div className="max-w-4xl mx-auto space-y-4">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-      Stay Inside Our Homestay
-    </h2>
-
-    <p className="text-gray-600 text-lg leading-relaxed">
-      You can also stay in our exclusive private home stay with rooms,
-      located just from Udawalawe National Park.
-    </p>
-
-    <a
-      href="/homestay"
-      className="inline-block mt-6 px-8 py-3 bg-green-800 text-white
-                 font-semibold rounded-full shadow-lg
-                 hover:bg-green-700 transition"
-    >
-      View Our Homestay
-    </a>
-  </div>
+  <div className="max-w-4xl mx-auto space-y-4"> <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900"> Stay Inside Our Homestay </h2> 
+  <p className="text-gray-600 text-center text-lg leading-relaxed">
+     You can also stay in our exclusive private home stay with rooms, located just from Udawalawe National Park. </p> 
+     <div className="flex justify-center"><a href="/homestay" className="inline-block mt-6 px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition" > View Our Homestay </a> </div></div>
 
   {/* IMAGES ROW */}
   <div className="max-w-6xl mx-auto mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -314,11 +334,17 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
       </div>
     ))}
   </div>
-</section>
+</motion.section>
 
 
 {/* 🏨 HOTELS SECTION */}
-<section id="hotels" className="max-w-7xl mx-auto px-6 py-20">
+ <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20"
+>
 
   <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
     Hotels in Udawalawe
@@ -385,7 +411,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
     ))}
 
   </div>
-</section>
+</motion.section>
       </main>
     );
   }

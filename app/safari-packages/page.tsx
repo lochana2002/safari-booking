@@ -4,12 +4,22 @@ import { useRouter } from 'next/navigation';
 import PackageCard from "@/components/PackageCard";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function SafariPackages() {
 
 const [loading, setLoading] = useState(false);
 const router = useRouter();
 const [error, setError] = useState('');
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
+};
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
@@ -88,7 +98,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       </section>
 
       {/* ================= PACKAGES ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
+                <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
+>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
           <PackageCard
@@ -119,10 +135,16 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   description="Maximum wildlife experience with lunch break."
   image="https://res.cloudinary.com/jerrick/image/upload/v1744911855/68013defbdad34001dc248bd.jpg"/>
         </div>
-      </section>
+      </motion.section>
 
       {/* ---------- ENTRANCE TICKET PRICE SECTION ---------- */}
-      <section className="max-w-7xl mx-auto mt-20">
+          <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
+>
         <h2 className="text-4xl font-bold text-center mb-10 text-gray-900">
           Entrance Tickets Price
         </h2>
@@ -216,7 +238,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 <p  className="text-lg text-gray-600 font-semibold py-3">All tickets will be added 15% VAT, Service charges, and Other taxes. * If you stay overnight in the National park this price will be doubled.</p>
           </div>
         </div>
-      </section>
+     </motion.section>
 <section
   id="booking-form"
   className="relative min-h-screen flex items-center justify-center text-white"
@@ -304,7 +326,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
          {/* ================= FAQ SECTION ================= */}
-      <section id="faq" className="max-w-4xl mx-auto px-6 py-20">
+            <motion.section
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
+>
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
           FAQs
         </h2>
@@ -352,9 +380,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             </details>
           ))}
         </div>
-      </section>
-
-    
+      </motion.section>
 
       {/* ================= ANIMATION ================= */}
       <style>
