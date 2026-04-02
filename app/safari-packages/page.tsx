@@ -326,7 +326,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
          {/* ================= FAQ SECTION ================= */}
-            <motion.section
+            <motion.section id="faq"
   variants={fadeInUp}
   initial="hidden"
   whileInView="show"

@@ -171,7 +171,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
        </motion.section>
 
           {/* 🏡 BUNGALOWS SECTION */}   
-       <motion.section
+       <motion.section id="bungalows"
   variants={fadeInUp}
   initial="hidden"
   whileInView="show"
@@ -212,7 +212,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
          </motion.section>
 
           // others     
-        <motion.section
+        <motion.section id="other"
   variants={fadeInUp}
   initial="hidden"
   whileInView="show"
@@ -338,7 +338,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
 
 
 {/* 🏨 HOTELS SECTION */}
- <motion.section
+ <motion.section id="hotels"
   variants={fadeInUp}
   initial="hidden"
   whileInView="show"
