@@ -257,7 +257,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   <div className="relative z-20 max-w-7xl w-full px-6 grid lg:grid-cols-2 gap-16 items-center">
     {/* LEFT CONTENT */}
-    <div>
+    <div className="animate-heroFade">
       <p className="uppercase tracking-widest text-sm text-gray-300 mb-4">
         Reservation
       </p>
@@ -277,7 +277,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     {/* FORM */}
     <form onSubmit={handleSubmit}
-      className="backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4">
+      className="animate-heroFade delay-1 backdrop-blur-xl bg-white/10 rounded-2xl p-8 grid grid-cols-2 gap-4">
      <input name="name" type="text" placeholder="NAME" className="col-span-2 input" disabled={loading} />
 
 <input name="email" type="email" placeholder="EMAIL ADDRESS" className="col-span-2 input" disabled={loading}/>
@@ -393,6 +393,30 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             to { opacity: 1; transform: translateY(0); }
           }
         `}
+         {/* ANIMATION STYLE */}
+      <style>
+        {`
+          .animate-heroFade {
+            opacity: 0;
+            animation: heroFade 1.2s ease-out forwards;
+          }
+
+          .delay-1 {
+            animation-delay: 0.3s;
+          }
+
+          @keyframes heroFade {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
       </style>
     </main>
   );
