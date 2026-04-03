@@ -11,6 +11,10 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const router = useRouter();
+  const [blogTitle, setBlogTitle] = useState('');
+  const [blogContent, setBlogContent] = useState('');
+  const [blogImage, setBlogImage] = useState('');
+  const [blogAuthor, setBlogAuthor] = useState('');
 
   useEffect(() => {
   const token = localStorage.getItem('token');
@@ -102,6 +106,29 @@ const filterData = (data: any[]) =>
   });
 };
 
+const handleSubmit = async () => {
+  await fetch('http://localhost:4000/blogs', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: blogTitle,
+      content: blogContent,
+      image: blogImage,
+      author: blogAuthor,
+    }),
+  });
+
+  alert('Blog created!');
+
+  // reset form
+  setBlogTitle('');
+  setBlogContent('');
+  setBlogImage('');
+  setBlogAuthor('');
+};
+
   const logout = () => {
     localStorage.removeItem('token');
     router.push('/admin/login');
@@ -117,6 +144,13 @@ const filterData = (data: any[]) =>
         Logout
       </button>
     </div>
+
+<button
+  onClick={() => router.push('/admin/blogs')}
+  className="bg-blue-700 text-white px-4 py-2 rounded"
+>
+  Manage Blogs
+</button>
 
     {/* STATS CARDS */}
     <div className="grid grid-cols-3 gap-6 mb-8">
