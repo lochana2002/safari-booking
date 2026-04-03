@@ -117,6 +117,20 @@ const handleSubmit = async (e: React.FormEvent) => {
   
   const whatsappNumber = "94770443323";
 
+  const staggerContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardItem = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
   return (
     <main className="bg-white">
 
@@ -140,7 +154,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       Siri Home Stay
     </h1>
 
-    <p className="text-lg md:text-xl text-gray-200 mt-4 max-w-3xl mx-auto">
+    <p className="py-5 text-lg md:text-xl text-gray-200 mt-4 max-w-3xl mx-auto">
       Peaceful nature stay near Udawalawe National Park — perfect for safari lovers
     </p>
 
@@ -186,8 +200,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   initial="hidden"
   whileInView="show"
   viewport={{ once: true, amount: 0.2 }}
-  className="relative max-w-7xl mx-auto text-center space-y-3 px-6 py-20
-             bg-gradient-to-b from-green-50 to-white"
+  className="relative max-w-7xl mx-auto text-center space-y-3 px-6 py-20"
 >
 
   <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
@@ -219,7 +232,6 @@ const handleSubmit = async (e: React.FormEvent) => {
   />
 </motion.section>
 
-
 {/* ================= ABOUT ================= */}
 <section
   className="relative bg-cover bg-center"
@@ -228,64 +240,82 @@ const handleSubmit = async (e: React.FormEvent) => {
       "url('https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/623605967.jpg?k=44fbef164c0917587a80ad892f0427b4fa3b47d9f4a382ab085ff89297f57361&o=')",
   }}
 >
-  {/* DARK OVERLAY */}
+  {/* OVERLAY */}
   <div className="absolute inset-0 bg-black/40"></div>
 
-  {/* CONTENT WRAPPER */}
   <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-    <h2 className="text-4xl font-bold text-center text-white mb-4">
-     About Our Homestay
-    </h2>
 
-    <p className="text-center text-gray-200 mb-14 max-w-4xl mx-auto">
-       Our home stay is located just away from Udawalawe National Park.
-          Wake up to bird sounds, enjoy home-cooked Sri Lankan meals, and experience
-          authentic village hospitality. Surrounded by peaceful paddy fields, and a beautiful natural landscape, ideal for families, couples, and wildlife photographers.
-    </p>
+    {/* TITLE */}
+    <motion.h2
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-4xl font-bold text-center text-white mb-4"
+    >
+      About Our Homestay
+    </motion.h2>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    {/* DESCRIPTION */}
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      viewport={{ once: true }}
+      className="text-center text-gray-200 mb-14 max-w-4xl mx-auto"
+    >
+      Our home stay is located just away from Udawalawe National Park.
+      Wake up to bird sounds, enjoy home-cooked Sri Lankan meals, and experience
+      authentic village hospitality. Surrounded by peaceful paddy fields and
+      beautiful natural landscapes, ideal for families, couples, and photographers.
+    </motion.p>
+
+    {/* FEATURES GRID (SAME AS WHY CHOOSE US) */}
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10"
+    >
       {[
-            {
-              title: "Comfortable Rooms",
-              desc: "Tailored safari experiences designed to give you the best trip.",
-            },
-            {
-              title: "Free WiFi",
-              desc: "Our guides know the best wildlife locations and ensure a safe, enjoyable journey.",
-            },
-            {
-              title: "Air Conditioning",
-              desc: "Well-maintained jeeps designed for the best wildlife viewing experience.",
-            },
-            {
-              title: "Safe & Reliable",
-              desc: "We prioritize your safety with reliable service and transparent pricing.",
-            },
-            {
-              title: "Home Cooked Meals",
-              desc: "We always provide clear pricing with no hidden or unexpected fees.",
-            },
-            {
-              title: " Explore the Local Culture",
-              desc: "Years of experience serving local and foreign travelers with care.",
-              
-            },
+        {
+          title: "Comfortable Rooms",
+          desc: "Relax in cozy, well-designed rooms with peaceful surroundings.",
+        },
+        {
+          title: "Free WiFi",
+          desc: "Stay connected with high-speed internet during your stay.",
+        },
+        {
+          title: "Air Conditioning",
+          desc: "Enjoy a cool and comfortable environment anytime.",
+        },
+        {
+          title: "Safe & Reliable",
+          desc: "We ensure safety, comfort, and trusted service.",
+        },
+        {
+          title: "Home Cooked Meals",
+          desc: "Taste authentic Sri Lankan dishes prepared fresh daily.",
+        },
+        {
+          title: "Explore Local Culture",
+          desc: "Experience village life and traditional Sri Lankan hospitality.",
+        },
       ].map((item, i) => (
-        <div
+        <motion.div
           key={i}
-          className="border border-white/50 rounded-2xl p-8
-                     text-white bg-transparent
-                     transition duration-500 hover:-translate-y-2"
+          variants={cardItem}
+          className="border border-white/50 rounded-2xl p-8 text-white backdrop-blur-sm hover:-translate-y-2 transition"
         >
           <h3 className="text-2xl font-semibold text-center mb-2">
             {item.title}
           </h3>
-          <p className="text-center text-gray-200">
-            {item.desc}
-          </p>
-        </div>
+          <p className="text-center text-gray-200">{item.desc}</p>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
+
   </div>
 </section>
 
@@ -458,7 +488,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         className="relative text-center space-y-3 px-6 py-20
-                   bg-gradient-to-b from-green-50 to-white"
+             bg-gradient-to-b from-green-50 to-white"
       >
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Safari + Stay Packages

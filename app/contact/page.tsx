@@ -164,7 +164,7 @@ export default function Contact() {
       {/* MAP */}
       <section className="bg-gray-100 py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl text-center mb-8 animate-heroFade">
+          <h2 className="font-bold text-3xl text-gray-900 text-center mb-8 animate-heroFade">
             Find Us
           </h2>
 

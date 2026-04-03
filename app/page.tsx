@@ -305,7 +305,8 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
   initial="hidden"
   whileInView="show"
   viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20"
+  className=" relative text-center space-y-3 px-6 py-20
+             bg-gradient-to-b from-green-50 to-white"
 >
   <div className="max-w-4xl mx-auto space-y-4"> <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900"> Stay Inside Our Homestay </h2> 
   <p className="text-gray-600 text-center text-lg leading-relaxed">
