@@ -311,7 +311,8 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
   <div className="max-w-4xl mx-auto space-y-4"> <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900"> Stay Inside Our Homestay </h2> 
   <p className="text-gray-600 text-center text-lg leading-relaxed">
      You can also stay in our exclusive private home stay with rooms, located just from Udawalawe National Park. </p> 
-     <div className="flex justify-center"><a href="/homestay" className="inline-block mt-6 px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition" > View Our Homestay </a> </div></div>
+     <div className="flex justify-center"><a href="/homestay" className="inline-block mt-6 px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition" > 
+     View Our Homestay </a> </div></div>
 
   {/* IMAGES ROW */}
   <div className="max-w-6xl mx-auto mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -334,7 +335,17 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
         />
       </div>
     ))}
+     {/* BOOK NOW BUTTON FOR Homestay*/}
+   <div className="w-full flex justify-center mt-6">
+  <a
+    href="/homestay/#booking-form"
+    className="px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition"
+  >
+    Book Your Room
+  </a>
+</div>
   </div>
+  
 </motion.section>
 
 
