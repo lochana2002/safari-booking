@@ -4,28 +4,11 @@ import Image from "next/image";
 import ActivitySection from "@/components/ActivitySection";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { homestayRooms } from "@/lib/homestayRooms";
 
 export default function HomeStayPage() {
-  const rooms = [
-    {
-      name: "Family Room",
-      price: 12000,
-      guests: 4,
-      image: "/rooms/family.jpg",
-    },
-    {
-      name: "Double Room",
-      price: 9000,
-      guests: 2,
-      image: "/rooms/double.jpg",
-    },
-    {
-      name: "Triple Room",
-      price: 10000,
-      guests: 3,
-      image: "/rooms/triple.jpg",
-    },
-  ];
+
+const rooms = Object.entries(homestayRooms);
 
   const [form, setForm] = useState({
   name: "",
@@ -54,8 +37,6 @@ const fadeInUp = {
     transition: { duration: 0.8 },
   },
 };
-
-fetch(`${process.env.NEXT_PUBLIC_API_URL}/room-bookings`)
 
 const [success, setSuccess] = useState(false);
 const [error, setError] = useState("");
@@ -334,45 +315,39 @@ const cardItem = {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10">
-            {rooms.map((room, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden group"
-              >
-                {/* Image */}
-                <div className="relative h-64">
-                  <Image
-                    src={room.image}
-                    alt={room.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-700"
-                  />
-                </div>
+            {rooms.map(([slug, room]) => (
+  <div key={slug} className="bg-white rounded-2xl shadow-lg overflow-hidden group">
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    {room.name}
-                  </h3>
+    <div className="relative h-64">
+      <Image
+        src={room.images[0]}
+        alt={room.name}
+        fill
+        className="object-cover group-hover:scale-105 transition duration-700"
+      />
+    </div>
 
-                  <p className="text-gray-600">
-                    👥 Max Guests: {room.guests}
-                  </p>
+    <div className="p-6 space-y-4">
+      <h3 className="text-2xl font-semibold text-gray-800">
+        {room.name}
+      </h3>
 
-                  <p className="text-xl font-bold text-green-700">
-                    Rs. {room.price.toLocaleString()} / night
-                  </p>
+      <p className="text-gray-600">👥 Max Guests: {room.guests}</p>
 
-                <Link
-  href={`/homestay/${room.name.toLowerCase().replace(/\s+/g, "-")}`}
-  className="block text-center px-6 py-3 bg-green-900 hover:bg-green-700
-             text-white font-semibold rounded-full shadow-md transition"
->
-  View Room Details
-</Link>
-                </div>
-              </div>
-            ))}
+      <p className="text-xl font-bold text-green-700">
+        Rs. {room.price.toLocaleString()} / night
+      </p>
+
+      <Link
+        href={`/homestay/${slug}`}
+        className="block text-center px-6 py-3 bg-green-900 hover:bg-green-700
+                   text-white font-semibold rounded-full shadow-md transition"
+      >
+        View Room Details
+      </Link>
+    </div>
+  </div>
+))}
           </div>
         </div>
       </motion.section>
