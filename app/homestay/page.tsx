@@ -316,7 +316,7 @@ const cardItem = {
 
           <div className="grid md:grid-cols-3 gap-10">
             {rooms.map(([slug, room]) => (
-    <div key={slug} className="bg-white rounded-2xl shadow-lg overflow-hidden group">
+    <div key={slug} className="border bg-white rounded-2xl hover:shadow-lg overflow-hidden group">
 
     <div className="relative h-64">
       <Image

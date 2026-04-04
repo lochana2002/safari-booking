@@ -42,7 +42,7 @@ const fadeInUp = {
         {isLong && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-green-800 font-semibold hover:underline"
+            className="text-gray-600 font-semibold hover:underline"
           >
             {expanded ? "Read Less ▲" : "Read More ▼"}
           </button>

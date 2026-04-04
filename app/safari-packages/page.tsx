@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import PackageCard from "@/components/PackageCard";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Link } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -115,6 +115,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   badge="Most Popular"
   description="Best viewing time for elephants and wildlife."
   image="https://images.squarespace-cdn.com/content/v1/5a4188e76f4ca304bb0e99ab/1553072783394-N4EDCPCQAK99AKUB4RHQ/udawalawe-safari-19.jpg"
+  
 />
 
 <PackageCard
