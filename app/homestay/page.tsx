@@ -30,8 +30,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
 };
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
+    hidden: { opacity: 0, y: 50 },
+    show: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.8 },
@@ -316,7 +316,7 @@ const cardItem = {
 
           <div className="grid md:grid-cols-3 gap-10">
             {rooms.map(([slug, room]) => (
-  <div key={slug} className="bg-white rounded-2xl shadow-lg overflow-hidden group">
+    <div key={slug} className="bg-white rounded-2xl shadow-lg overflow-hidden group">
 
     <div className="relative h-64">
       <Image

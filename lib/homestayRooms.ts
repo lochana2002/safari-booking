@@ -3,7 +3,7 @@ export const homestayRooms = {
     name: "Family Room",
     price: 12000,
     guests: 4,
-    images: ["/images/family.jpg"],
+    images: ["/images/family.jpg", "/images/bath.avif", "/images/garden1.jpg"],
     description:
       "Spacious luxury family room surrounded by paddy fields, offering comfort, privacy, and peaceful village views.",
   },
@@ -11,7 +11,7 @@ export const homestayRooms = {
     name: "Double Room",
     price: 9000,
     guests: 2,
-    images: ["/images/double.webp"],
+    images: ["/images/double.webp", "/images/bathroom.jpg", "/images/balc.jpg"],
     description:
       "Elegant double room ideal for couples seeking a tranquil safari retreat near Udawalawe National Park.",
   },
@@ -19,7 +19,7 @@ export const homestayRooms = {
     name: "Triple Room",
     price: 10000,
     guests: 3,
-    images: ["/images/triple.jpg"],
+    images: ["/images/triple.jpg", "/images/bathrooms.jpg", "/images/balcany.jpg"],
     description:
       "Comfortable triple room perfect for friends or small families, blending nature, luxury, and privacy.",
   },
