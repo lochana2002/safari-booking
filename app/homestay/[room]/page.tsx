@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { homestayRooms } from "@/lib/homestayRooms";
+import FadeInSection from "@/components/FadeInSection";
 
 export function generateStaticParams() {
   return Object.keys(homestayRooms).map((key) => ({
@@ -26,6 +27,7 @@ export default async function RoomDetailPage({
   return (
     <main className="bg-white min-h-screen flex items-center justify-center px-6 py-20">
       
+      <FadeInSection>
       {/* CENTER CONTAINER */}
       <div className="max-w-5xl w-full text-center space-y-10">
 
@@ -61,7 +63,6 @@ export default async function RoomDetailPage({
   </div>
 
 </div>
-
         {/* DESCRIPTION */}
         <p className="text-gray-600 text-lg max-w-3xl mx-auto">
           {data.description}
@@ -105,8 +106,8 @@ export default async function RoomDetailPage({
         >
           Book via WhatsApp
         </a>
-
       </div>
+      </FadeInSection>
     </main>
   );
 }
