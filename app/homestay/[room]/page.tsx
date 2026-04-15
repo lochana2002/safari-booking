@@ -111,7 +111,7 @@ export default async function RoomDetailPage({
 
       <Link
             href="/homestay/#rooms"
-            className="block mt-4 text-center text-green-800 underline"
+            className="block mt-4 text-center text-green-600 underline"
           >
             ← Back to Room Packages
           </Link>

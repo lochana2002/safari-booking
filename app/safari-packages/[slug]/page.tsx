@@ -1,7 +1,7 @@
-'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { notFound } from "next/navigation";
+import FadeInSection from "@/components/FadeInSection";
 
 const packages = {
   "three-hour-safari": {
@@ -9,7 +9,7 @@ const packages = {
     price: "Rs. 12,000",
     image: "/images/morning.webp",
     description:
-      "Perfect for early morning wildlife sightings including elephants, birds, and other animals in Udawalawe National Park.",
+      "Perfect for early morning wildlife sightings including elephants and birds.",
 
     details: [
       "⏰ Duration: 3 Hours",
@@ -19,198 +19,135 @@ const packages = {
       "👨‍✈️ Experienced Local Guide",
     ],
 
-    includes: [
-      "Private Safari Jeep",
-      "Experienced Driver/Guide",
-      "Hotel Pickup (optional)",
-      "Fuel & Jeep Charges",
-    ],
-
-    excludes: [
-      "Entrance Ticket Fees",
-      "Food & Drinks",
-      "Tips & Personal Expenses",
-    ],
-
-    schedule: [
-      "06:00 AM – Pickup / Meet at entrance",
-      "06:30 AM – Enter the park",
-      "08:00 AM – Wildlife spotting",
-      "09:00 AM – Continue safari",
-      "09:30 AM – Exit park",
-    ],
-
-    notes: [
-      "Wear light comfortable clothing",
-      "Bring sunscreen & hat",
-      "Carry camera/binoculars",
-    ],
-  },
-
-  "half-day-safari": {
-    title: "Half-Day Safari",
-    price: "Rs. 15,000",
-    image: "/images/halfday.jpg",
-    description:
-      "Enjoy beautiful lighting and cooler temperatures during the afternoon safari.",
-
-    details: ["⏰ 5 Hours", "🕒 3:00 PM", "📸 Best for Photography"],
-
-    includes: ["Private Jeep", "Driver", "Fuel"],
-    excludes: ["Tickets", "Meals"],
-    schedule: ["3 PM Start", "Sunset safari", "Return 8 PM"],
-    notes: ["Best lighting for photos"],
-  },
-
-  "full-day-safari": {
-    title: "Full-Day Safari",
-    price: "Rs. 22,000",
-    image: "/images/fullday.jpg",
-    description:
-      "Spend the entire day exploring Udawalawe National Park with maximum wildlife opportunities.",
-
-    details: ["Full Day", "Lunch break", "Max wildlife"],
-    includes: ["Jeep", "Guide", "Fuel"],
-    excludes: ["Tickets"],
-    schedule: ["Morning + Evening safari"],
-    notes: ["Best for serious wildlife lovers"],
+    includes: ["Private Jeep", "Guide", "Fuel"],
+    excludes: ["Tickets", "Food"],
+    schedule: ["06:00 AM Start", "Wildlife spotting", "09:30 AM Return"],
+    notes: ["Bring water", "Wear light clothes"],
   },
 };
 
-export default async function Page({
+export default async function SafariDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
 
-  const safariPackage =
-    packages[slug as keyof typeof packages];
+  const data = packages[slug as keyof typeof packages];
 
-  if (!safariPackage) {
-    return <h1 className="text-center mt-20">Package Not Found</h1>;
-  }
-
-  const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
+  if (!data) return notFound();
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-gradient-to-b from-white to-green-50 min-h-screen">
 
       {/* HERO */}
-      <section className="relative h-[60vh] flex items-center justify-center">
+      <section className="relative h-[65vh] flex items-center justify-center">
         <Image
-          src={safariPackage.image}
-          alt={safariPackage.title}
+          src={data.image}
+          alt={data.title}
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative text-center text-white">
-          <h1 className="text-5xl font-bold">
-            {safariPackage.title}
+        <div className="relative text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-bold">
+            {data.title}
           </h1>
-          <p className="mt-4 text-xl">
-            {safariPackage.price}
+          <p className="mt-3 text-lg md:text-xl text-gray-200">
+            Starting from {data.price}
           </p>
         </div>
       </section>
 
-      {/* MAIN CONTENT */}
-             <motion.section
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  className="relative text-center space-y-3 px-6 py-20
-             bg-gradient-to-b from-green-50 to-white"
->
+      {/* CONTENT */}
+      <FadeInSection>
+        <section className="max-w-6xl mx-auto px-6 py-14 space-y-12">
 
-        {/* LEFT SIDE */}
-        <div className="space-y-8">
-
-          {/* Overview */}
-          <div>
-            <h2 className="text-3xl text-gray-700 font-bold mb-3">Overview</h2>
-            <p className="text-gray-600">
-              {safariPackage.description}
+          {/* OVERVIEW CARD */}
+          <div className="bg-white rounded-2xl shadow-md p-6 md:p-10">
+            <h2 className="text-2xl text-center font-bold text-gray-800 mb-3">
+              Overview
+            </h2>
+            <p className="text-gray-600 text-center leading-relaxed">
+              {data.description}
             </p>
           </div>
 
-          {/* Highlights */}
-          <div>
-            <h2 className="text-2xl  text-gray-700 font-bold mb-3">Highlights</h2>
-            <ul className="space-y-2">
-              {safariPackage.details.map((item, i) => (
-                <li key={i} className="bg-gray-500 p-3 rounded">
+          {/* HIGHLIGHTS */}
+          <div className="bg-white rounded-2xl shadow-md p-6 md:p-10">
+            <h2 className="text-2xl font-bold text-gray-800 mb-5 text-center">
+              Highlights
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-3">
+              {data.details.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-green-50 text-gray-700 p-3 rounded-lg"
+                >
                   {item}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-         <div className="grid md:grid-cols-2 gap-8">
+          {/* INFO GRID */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
 
-  <div className="grid md:grid-cols-4 w-7xl gap-8">
+            {[
+              { title: "✔ Includes", data: data.includes },
+              { title: "✖ Excludes", data: data.excludes },
+              { title: "Schedule", data: data.schedule },
+              { title: "Notes", data: data.notes },
+            ].map((section, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl shadow-md p-5"
+              >
+                <h3 className="font-bold text-gray-800 mb-3">
+                  {section.title}
+                </h3>
 
-  {[ 
-    { title: "✔ Includes", data: safariPackage.includes, color: "text-green-700" },
-    { title: "✖ Not Included", data: safariPackage.excludes, color: "text-red-600" },
-    { title: "Safari Schedule", data: safariPackage.schedule, color: "text-gray-700" },
-    { title: "Important Notes", data: safariPackage.notes, color: "text-gray-700" },
-  ].map((section, index) => (
-    <div key={index} className="bg-gray-50 p-5 rounded-xl shadow-sm">
-      <h2 className={`text-xl font-bold mb-3 ${section.color}`}>
-        {section.title}
-      </h2>
-      <ul className="space-y-1 text-gray-700">
-        {section.data.map((item: string, i: number) => (
-          <li key={i}>• {item}</li>
-        ))}
-      </ul>
-    </div>
-  ))}
+                <ul className="space-y-2 text-sm text-gray-600">
+                  {section.data.map((item, j) => (
+                    <li key={j}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
-</div>
-</div>
-        </div>
+          {/* CTA SECTION */}
+          <div className="text-center bg-green-900 text-white rounded-2xl p-10 shadow-lg">
+            <h2 className="text-2xl font-bold mb-3">
+              Ready for Your Safari?
+            </h2>
 
-        {/* RIGHT SIDE CARD */}
-        <div className="bg-gray-50 p-8 rounded-3xl shadow-lg h-fit">
+            <p className="text-gray-200 mb-6">
+              Book now and experience Udawalawe wildlife up close.
+            </p>
 
-          <h3 className="text-2xl  text-green-700 font-bold mb-4">
-            Book This Safari
-          </h3>
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+              <a
+                href="https://wa.me/94771234597"
+                target="_blank"
+                className="px-8 py-3 bg-white text-green-900 font-semibold rounded-full hover:bg-gray-200 transition"
+              >
+                Book via WhatsApp
+              </a>
 
-          <p className="text-gray-600 mb-4">
-            Contact us directly to reserve your safari.
-          </p>
+              <Link
+                href="/safari-packages"
+                className="px-8 py-3 border border-white rounded-full hover:bg-white hover:text-green-900 transition"
+              >
+                Back to Packages
+              </Link>
+            </div>
+          </div>
 
-          <a
-            href="https://wa.me/94771234597"
-            target="_blank"
-            className="block bg-green-600 hover:bg-green-700 text-white text-center py-4 rounded-xl font-semibold"
-          >
-            Book via WhatsApp
-          </a>
-
-          <Link
-            href="/safari-packages/#packages"
-            className="block mt-4 text-center text-green-600 underline"
-          >
-            ← Back to Packages
-          </Link>
-
-        </div>
-
-      </motion.section>
+        </section>
+      </FadeInSection>
     </main>
   );
 }
