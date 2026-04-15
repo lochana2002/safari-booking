@@ -1,23 +1,17 @@
   "use client";
   import HeroCarousel from "../components/HeroCarousel";
   import { useState } from "react";
-  import { motion } from "framer-motion";
+  import FadeInSection from "@/components/FadeInSection";
+  import BungalowSection from "@/components/BungalowSection";
+
 
   export default function Home() {
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
 
   const AnimalSection = ({ title, description, image, reverse }) => {
   const [expanded, setExpanded] = useState(false);
 
-  const limit = 160; // adjust text limit
+  const limit = 350; // adjust text limit
   const isLong = description.length > limit;
 
   return (
@@ -28,11 +22,11 @@ const fadeInUp = {
     >
       {/* Text */}
       <div className="space-y-6 [direction:ltr]">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-xl md:text-4xl font-bold text-gray-900">
           {title}
         </h2>
 
-        <p className="text-gray-600 text-lg leading-relaxed">
+        <p className="text-gray-600 text-lg leading-relaxed text-justify">
           {expanded || !isLong
             ? description
             : description.slice(0, limit) + "..."}
@@ -77,19 +71,12 @@ const fadeInUp = {
           <HeroCarousel />
         </section>
 
-        <motion.section
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  className="relative text-center space-y-3 px-6 py-20
-             bg-gradient-to-b from-green-50 to-white"
->
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-    Book Your Wildlife Adventure
-  </h2>
+      <FadeInSection> 
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
+      Book Your Wildlife Adventure
+  </h2>  
 
-  <p className="text-gray-600 text-lg leading-relaxed">
+  <p className="text-gray-600 text-lg text-center leading-relaxed">
     Discover Sri Lanka’s incredible wildlife sanctuary. Witness majestic
     elephants, exotic birds, crocodiles, and the stunning grasslands of
     Udawalawe — guided by local experts who know the park best.
@@ -103,20 +90,16 @@ const fadeInUp = {
       View Safari Packages
     </a>
   </div>
-</motion.section>
+</FadeInSection>
 
-        {/* WILDLIFE SECTIONS */}
-       <motion.section
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
->
+<FadeInSection className="mt-2"> 
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
             Wildlife You Will See in Udawalawe
           </h2>
-
+           <p className="text-gray-600 text-center text-lg leading-relaxed">
+    A journey into nature’s most unforgettable encounters. 🐘🌿🦜
+  </p></FadeInSection>
+<FadeInSection>
           <AnimalSection 
             title="Asian Elephants"
             description="Udawalawe National Park is a premier Sri Lankan sanctuary renowned for its large population of wild Asian elephants, offering near-guaranteed sightings of 600–700+ residents. These, primarily the Sri Lankan subspecies (), are highly sociable, often seen in herds grazing in grasslands or bathing in the reservoir. 
@@ -128,102 +111,131 @@ Behavior: Visitors frequently observe family units, including calves, foraging i
 Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which rehabilitates orphaned calves for release back into the wild."
             image="https://srilankatravelpages.com/my_content/uploads/2023/01/Safari-at-Udawalawe-National-Park.jpg"
             />
-
+</FadeInSection>
+<FadeInSection>
           <AnimalSection
             title="Sri Lankan Leopards"
             description="Where to spot leopards in Sri Lanka | Intrepid Travel BlogSri Lankan leopards (Panthera pardus kotiya) in Udawalawe National Park are rare, elusive, and less commonly spotted compared to Yala National Park, but they do exist in this dry zone ecosystem. As the island's top predator, they inhabit scrub jungles and prey on deer, monkeys, and wild boar, often spotted in the early morning or late evening." 
             image="https://lakpura.com/cdn/shop/products/LK60400100-04-E-1280-720.jpg?v=1624589437&width=1445"
             reverse
           />
-
+          </FadeInSection>
+<FadeInSection>
           <AnimalSection
             title="Mugger Crocodiles"
-            description="Mugger crocodiles (Crocodylus palustris), also known as marsh crocodiles, are large, dark grey/brown freshwater reptiles frequently seen basking on the banks of the Walawe River and the main reservoir in Udawalawe National Park. As top predators in this ecosystem, they are notorious for growing continuously throughout their 40–70 year lifespans. "
+            description="The mugger crocodile (Crocodylus palustris) is a common and impressive reptile found in Udawalawe National Park, where it inhabits freshwater habitats such as reservoirs, marshes, and riverbanks. It is easily recognized by its broad snout, powerful jaws, and dark brown to olive-colored armored body. Often seen basking in the sun along the edges of the Udawalawe reservoir, this crocodile is an ambush predator that feeds on fish, birds, and small mammals. Despite its slow and still appearance, it is highly skilled at hunting, often floating like a log in the water before striking suddenly. As a top predator, the mugger crocodile plays an important role in maintaining the ecological balance of the park’s wetland ecosystem. "
             image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLg77HAMako-whhLCagzzTbnKYXASlnRt49Q&s"
             />
-
+</FadeInSection>
+<FadeInSection>
           <AnimalSection
             title="Spotted Deer"
-            description="Graceful spotted deer are commonly seen grazing in open fields or wandering through forest patches. Their elegant movements make them a favorite among wildlife enthusiasts."
+            description="The spotted deer, also known as the chital (*Axis axis*), is one of the most commonly seen animals in Udawalawe National Park. These graceful herbivores are easily recognized by their reddish-brown coat covered with distinctive white spots and their white underparts. They usually live in herds and are often found grazing in open grasslands or near water sources within the park. Male spotted deer have impressive branching antlers, which they shed and regrow each year. They mainly feed on grass, leaves, and fruits, and are an important part of the ecosystem as prey for predators. Their alert nature and habit of moving in groups help them detect danger quickly, making them a fascinating species to observe during a safari."
             image="https://lakpura.com/cdn/shop/products/LK50A01000-05-E_6d95534e-1e1b-4755-ad7a-2123c7f55aef.jpg?v=1647864879&width=1445"
             reverse
           />
-
+          </FadeInSection>
+<FadeInSection>
           <AnimalSection
             title="Over 200 Bird Species"
-            description="Udawalawe National Park is a premier birdwatching destination in Sri Lanka, boasting over 180 recorded species, including 33 migratory and several endemics. The park’s mix of dry zone scrub, grasslands, and the large Udawalawe Reservoir attracts a high concentration of water birds, raptors, and colorful dry-zone species."
+            description="Udawalawe National Park is home to over 200 species of birds, making it one of the best birdwatching destinations in Sri Lanka. The park’s mix of grasslands, wetlands, and forest habitats supports a wide variety of resident and migratory birds. Visitors can commonly spot species such as the Sri Lanka junglefowl, grey hornbill, painted stork, and white-bellied sea eagle. Water birds gather around the Udawalawe reservoir, while forested areas attract colorful and endemic species. This rich bird diversity makes the park especially attractive for nature lovers, photographers, and birdwatchers throughout the year."
             image="https://www.srilankabirdwatchingtours.com/images/bird-watching-sites-in-sri-lanka/udawalawe-national-park/03.jpg"
                   />
-
+</FadeInSection>
+<FadeInSection>
            <AnimalSection
             title="Monkeys"
-            description="Graceful spotted deer are commonly seen grazing in open fields or wandering through forest patches. Their elegant movements make them a favorite among wildlife enthusiasts."
+            description="Monkeys are a common and lively sight in Udawalawe National Park, adding energy and curiosity to the park’s wildlife. The two main species found here are the Toque macaque and the grey langur. Toque macaques are smaller, social monkeys often seen in groups near roads and trees, known for their playful and sometimes mischievous behavior. In contrast, grey langurs are larger with long tails and tend to stay in taller trees, moving gracefully and feeding mainly on leaves. Both species are highly adaptable and play an important role in the ecosystem by dispersing seeds and maintaining forest balance, making them a fascinating part of the Udawalawe safari experience."
             image="https://cdn.audleytravel.com/1050/750/79/16027168-family-of-tufted-gray-langurs-udawalawe-national-park.webp"
             reverse
           />
-
-        <p className="text-center text-lg text-gray-600 max-w-10xl mx-auto mb-12">
+</FadeInSection>
+  <FadeInSection>
+        <p className="text-gray-600 text-lg text-center leading-relaxed">
   In addition to these iconic animals, Udawalawe National Park is also home to
-  wild buffaloes, sambar deer, jackals, monkeys, snakes, tortoises, monitor
+  wild buffaloes, sambar deer, jackals, snakes, tortoises, monitor
   lizards, and many other reptiles and mammals that thrive in its diverse
   habitats.
 </p>
-       </motion.section>
+   </FadeInSection>
+    <FadeInSection>
+    <div className="max-w-6xl mx-auto mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+    {[
+      "https://classicwild.lk/blog/wp-content/uploads/2023/01/cw-3-of-4-1-scaled.jpg",
+      "https://i0.wp.com/amazinglanka.com/wp/wp-content/uploads/2014/03/snakes.jpg?ssl=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/32/58/4f/c0/udawalawa-national-park.jpg?w=1100&h=1100&s=1",
+      "https://www.ceylonexpeditions.com/medias/media/big/238/whatsapp-image-2020-05-15-at-22-47-10-1.jpeg",
+      "https://images.squarespace-cdn.com/content/v1/67f08f396e405f2d221c5386/af0d7206-9544-4e71-8f9a-767c76db8e72/D8A3371.jpg",
+      "https://sudathsafarisrilankatours.com/wp-content/uploads/2023/12/sudathsafarisrilankatours_water-monitor-lizards.jpg",
+      "https://www.srilankansafari.com/images/types-of-wild-boars-in-sri-lanka/types-of-wild-boars-in-sri-lanka-6.jpg?q=79&w=800&h=571",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9nUzxxqWzGXxcUesKq1usu0Zw8xDeg6SwPQ&s"
+        ].map((img, i) => (
+      <div
+        key={i}
+        className="overflow-hidden rounded-2xl shadow-lg group"
+      >
+        <img
+          src={img}
+          alt="Homestay"
+          className="w-full h-44 md:h-52 object-cover
+                     group-hover:scale-110 transition duration-700"
+          loading="lazy"
+        />
+      </div>
+    ))}
+    </div>
+     </FadeInSection>
 
           {/* 🏡 BUNGALOWS SECTION */}   
-       <motion.section id="bungalows"
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
->
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
-            Stay Inside Udawalawe National Park
-          </h2>
-
-          <AnimalSection
-            title="Gonawiddagala Bungalow"
-            description="Experience a peaceful stay inside Udawalawe National Park. These official wildlife bungalows offer the closest possible connection to nature — surrounded by elephants, birds, and breathtaking sunrise views. Ideal for families, photographers, and nature lovers looking for an unforgettable stay."
-            image="https://www.lankatravelguide.com/wp-content/uploads/2024/11/gonawiddagala-bungalow-udawalawe.jpg"
-            link="https://www.google.com/search?q=gonawiddagala+bungalow+at+udawalawe+national+park&sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifNOLZygOvPSg4LV8WG-jj6_VnjZIQ%3A1765871544109&ei=uA9BacmtBrjq1e8PqMLi2Aw&oq=Gonawiddagala+Bungalow&gs_lp=Egxnd3Mtd2l6LXNlcnAiFkdvbmF3aWRkYWdhbGEgQnVuZ2Fsb3cqAggBMgYQABgWGB4yCBAAGKIEGIkFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBUjQOlDgGFjgGHACeAGQAQCYAeMCoAHjAqoBAzMtMbgBAcgBAPgBAfgBApgCA6ACmgOoAhDCAgoQABiwAxjWBBhHwgINECMYgAQYJxiKBRjqAsICBxAjGCcY6gLCAhAQIxjwBRiABBgnGIoFGOoCwgINECMY8AUYJxjJAhjqAsICExAjGPAFGIAEGCcYyQIYigUY6gLCAhcQABiABBiRAhi0AhjnBhiKBRjqAtgBAcICIBAuGIAEGJECGLQCGOcGGMcBGMgDGIoFGOoCGK8B2AEBmAMk8QXp74t9GBPfVYgGAZAGCLoGBggBEAEYAZIHBTIuMy0xoAfhA7IHAzMtMbgH6wLCBwcyLTIuMC4xyAcngAgA&sclient=gws-wiz-serp"
-          />
-
-          <AnimalSection
-            title="Thibiriyamankada Bungalow"
-            description="Enjoy comfort with nature at the river-view eco lodge, located deep inside the forest edge. Watch wildlife from your private veranda while listening to the calming sounds of the river."
-            image="https://www.lankatravelguide.com/wp-content/uploads/2024/11/thimbiriyamankada-bungalow-.jpg"
-            link="https://www.google.com/search?q=Thibiriyamankada+Bungalow++at+udawalawe+national+park&sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifNdVMvZCoBF1E3CNZmvisK2FwLPgA%3A1765871613420&ei=_Q9BabWpGe27vr0Poo3gyQ8&ved=2ahUKEwj1m_Kx0MGRAxXtna8BHaIGOPkQ4dUDegQIBRAN&uact=5&oq=Thibiriyamankada+Bungalow++at+udawalawe+national+park&gs_lp=Egxnd3Mtd2l6LXNlcnAiNVRoaWJpcml5YW1hbmthZGEgQnVuZ2Fsb3cgIGF0IHVkYXdhbGF3ZSBuYXRpb25hbCBwYXJrMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIFEAAY7wVIvD1QlAFYijBwAXgBkAEBmAHKAqAB_h2qAQYyLTE0LjG4AQPIAQD4AQH4AQKYAgagApMLwgIKEAAYsAMY1gQYR5gDAIgGAZAGApIHBzEuMC40LjGgB4U_sgcFMi00LjG4B4wLwgcFMC4xLjXIBxuACAA&sclient=gws-wiz-serp"
-          />
-
-            <AnimalSection
-            title="Pokunuthenna Bungalow"
-            description="Enjoy comfort with nature at the river-view eco lodge, located deep inside the forest edge. Watch wildlife from your private veranda while listening to the calming sounds of the river."
-            image="https://www.lankatravelguide.com/wp-content/uploads/2024/11/pokunuthenna-bungalow-udawa.jpg"
-            link="https://www.google.com/search?q=pokunuthenna+bungalow+at+udawalawe+national+park&sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifPg50lYzbkUe6GY0AIrfAq4ED6pPA%3A1765871580084&ei=3A9BaaHmBL6h1e8PqYHI-Q0&ved=2ahUKEwihxP-h0MGRAxW-UPUHHakAMt8Q4dUDegQIBRAN&uact=5&oq=pokunuthenna+bungalow+at+udawalawe+national+park&gs_lp=Egxnd3Mtd2l6LXNlcnAiMHBva3VudXRoZW5uYSBidW5nYWxvdyBhdCB1ZGF3YWxhd2UgbmF0aW9uYWwgcGFyazIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIIEAAYgAQYogQyBRAAGO8FSNNgUJIDWN1PcAF4AZABAJgBjgOgAfwjqgEGMi0xMy40uAEDyAEA-AEBmAIKoAKQE8ICChAAGLADGNYEGEfCAgcQIxiwAhgnmAMAiAYBkAYIkgcHMS4wLjcuMqAHzj6yBwUyLTcuMrgHhhPCBwQyLTEwyAcqgAgA&sclient=gws-wiz-serp"
-          />
-
-          <AnimalSection
-            title="Senuggala Bungalow"
-            description="A premium stay option for travelers who want both comfort and wilderness. Private rooms, air-conditioning, guided night walks, and exclusive viewing decks."
-            image="https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg"
-            link="https://www.google.com/search?q=Senuggala+Bungalow+at+udawalawe+national+park&sca_esv=7a0616c681a8c1ce&sxsrf=AE3TifPmPzgpqzQA135rgdf9Zub62dXMcw%3A1765871660027&ei=LBBBadS2AYqfvr0PnNSwoAs&ved=2ahUKEwjU_I7I0MGRAxWKj68BHRwqDLQQ4dUDegQIBRAN&uact=5&oq=Senuggala+Bungalow+at+udawalawe+national+park&gs_lp=Egxnd3Mtd2l6LXNlcnAiLVNlbnVnZ2FsYSBCdW5nYWxvdyBhdCB1ZGF3YWxhd2UgbmF0aW9uYWwgcGFyazIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIIEAAYgAQYogQyCBAAGIAEGKIESKHSAVCKvAFYw8UBcAJ4AZABAJgBiQKgAesHqgEDMi00uAEDyAEA-AEB-AECmAIGoAKgCMICChAAGLADGNYEGEfCAgoQABgFGAcYChgewgIIEAAYBRgHGB7CAgsQABiABBiGAxiKBcICBhAAGAcYHsICCBAAGAcYChgemAMAiAYBkAYIkgcFMi4wLjSgB-EUsgcDMi00uAeMCMIHBTItNC4yyAclgAgA&sclient=gws-wiz-serp"
-          />
-         </motion.section>
+<BungalowSection 
+  heading="Stay Inside Udawalawe National Park"
+  intro="Where wildlife becomes your neighbor and nature never sleeps. 🌿"
+  items={[
+    {
+      title: "Gonawiddagala Bungalow",
+      description:
+        "Experience a peaceful stay inside Udawalawe National Park surrounded by elephants, birds, and nature.",
+      image:
+        "https://ceylontransit.com/wp-content/uploads/2024/11/gonawiddagala-bungalow-udawalawe-768x400.jpg",
+      link: "https://www.google.com/search?q=gonawiddagala+bungalow",
+    },
+    {
+      title: "Thibiriyamankada Bungalow",
+      description:
+        "River-view eco lodge with calming nature sounds and wildlife views.",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyNUwi_olVz3DfhhNXch0TN8YyCARK3xGNEw&s",
+      link: "https://www.google.com/search?q=Thibiriyamankada+Bungalow",
+    },
+    {
+      title: "Pokunuthenna Bungalow",
+      description:
+        "Private veranda with direct wildlife viewing and peaceful forest atmosphere.",
+      image:
+        "https://ceylontransit.com/wp-content/uploads/2024/11/pokunuthenna-bungalow-udawa.jpg",
+      link: "https://www.google.com/search?q=pokunuthenna+bungalow",
+    },
+    {
+      title: "Senuggala Bungalow",
+      description:
+        "Premium comfort stay with guided wildlife experiences and night walks.",
+      image:
+        "https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg",
+      link: "https://www.google.com/search?q=Senuggala+Bungalow",
+    },
+  ]}
+/>
 
           // others     
-        <motion.section id="other"
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20"
->
 
-             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+             <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
                Other Places to Visit
              </h2>
+              <p className="text-gray-600 text-center text-lg leading-relaxed">
+    Uncover hidden gems, local culture, and unforgettable adventures nearby. 🌿✨
+  </p>
 
+<FadeInSection>
   <div className="grid md:grid-cols-3 gap-10">
 
     {[
@@ -285,7 +297,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
             target="_blank"
             rel="noopener noreferrer"
           >
-            Show More
+             Show More →
           </a>
         </div>
 
@@ -297,20 +309,14 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
       </div>
     ))}
   </div>
-</motion.section>
+  </FadeInSection>
+
 
  {/* Homestay */}
-    <motion.section
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className=" relative text-center space-y-3 px-6 py-20
-             bg-gradient-to-b from-green-50 to-white"
->
+<FadeInSection>
   <div className="max-w-4xl mx-auto space-y-4"> <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900"> Stay Inside Our Homestay </h2> 
   <p className="text-gray-600 text-center text-lg leading-relaxed">
-     You can also stay in our exclusive private home stay with rooms, located just from Udawalawe National Park. </p> 
+    Where comfort feels like home and nature is right at your doorstep. 🌿🏡✨ </p> 
      <div className="flex justify-center"><a href="/homestay" className="inline-block mt-6 px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition" > 
      View Our Homestay </a> </div></div>
 
@@ -334,36 +340,30 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
           loading="lazy"
         />
       </div>
+      
     ))}
+  </div>
      {/* BOOK NOW BUTTON FOR Homestay*/}
-   <div className="w-full flex justify-center mt-6">
+  <div className="flex justify-center mt-6">
   <a
     href="/homestay/#booking-form"
-    className="px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition"
+    className="inline-block px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition"
   >
     Book Your Room
   </a>
 </div>
-  </div>
-  
-</motion.section>
+  </FadeInSection>
+
 
 
 {/* 🏨 HOTELS SECTION */}
- <motion.section id="hotels"
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20"
->
 
+<FadeInSection id="hotels">
   <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
     Hotels in Udawalawe
   </h2>
-
-  <p className="text-center text-gray-600 mb-12">
-    There are many hotels in Udawalawe. Below are some of the best.
+  <p className="text-gray-600 text-center text-lg leading-relaxed">
+   Where comfort meets the call of the wild. 🏨🌿🐘
   </p>
 
   <div className="grid md:grid-cols-2 gap-12">
@@ -416,14 +416,13 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
             target="_blank"
             rel="noopener noreferrer"
           >
-            Show More
+            Show More →
           </a>
         </div>
       </div>
     ))}
-
   </div>
-</motion.section>
+</FadeInSection>
       </main>
     );
   }
