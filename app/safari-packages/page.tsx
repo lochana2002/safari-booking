@@ -312,6 +312,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
          {/* ================= FAQ SECTION ================= */}
+         <section id="faq">
     <FadeInSection>
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
           FAQs
@@ -321,7 +322,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           Find answers to the most common questions about Udawalawe safaris.
         </p>
 
-        <div className="space-y-4">
+        <div className="space-y-4 bg-green-50">
           {[
             {
               q: "What is the best time for a safari?",
@@ -361,7 +362,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           ))}
         </div>
         </FadeInSection>
-     
+     </section>
 
       {/* ================= ANIMATION ================= */}
       <style>
