@@ -186,48 +186,50 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
     </div>
      </FadeInSection>
 
-          {/* 🏡 BUNGALOWS SECTION */}   
-<BungalowSection 
-  heading="Stay Inside Udawalawe National Park"
-  intro="Where wildlife becomes your neighbor and nature never sleeps. 🌿"
-  items={[
-    {
-      title: "Gonawiddagala Bungalow",
-      description:
-        "Experience a peaceful stay inside Udawalawe National Park surrounded by elephants, birds, and nature.",
-      image:
-        "https://ceylontransit.com/wp-content/uploads/2024/11/gonawiddagala-bungalow-udawalawe-768x400.jpg",
-      link: "https://www.google.com/search?q=gonawiddagala+bungalow",
-    },
-    {
-      title: "Thibiriyamankada Bungalow",
-      description:
-        "River-view eco lodge with calming nature sounds and wildlife views.",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyNUwi_olVz3DfhhNXch0TN8YyCARK3xGNEw&s",
-      link: "https://www.google.com/search?q=Thibiriyamankada+Bungalow",
-    },
-    {
-      title: "Pokunuthenna Bungalow",
-      description:
-        "Private veranda with direct wildlife viewing and peaceful forest atmosphere.",
-      image:
-        "https://ceylontransit.com/wp-content/uploads/2024/11/pokunuthenna-bungalow-udawa.jpg",
-      link: "https://www.google.com/search?q=pokunuthenna+bungalow",
-    },
-    {
-      title: "Senuggala Bungalow",
-      description:
-        "Premium comfort stay with guided wildlife experiences and night walks.",
-      image:
-        "https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg",
-      link: "https://www.google.com/search?q=Senuggala+Bungalow",
-    },
-  ]}
-/>
+<section id="bungalows">
+  <BungalowSection
+    heading="Stay Inside Udawalawe National Park"
+    intro="Where wildlife becomes your neighbor and nature never sleeps. 🌿"
+    items={[
+      {
+        title: "Gonawiddagala Bungalow",
+        description:
+          "Experience a peaceful stay inside Udawalawe National Park surrounded by elephants, birds, and nature.",
+        image:
+          "https://ceylontransit.com/wp-content/uploads/2024/11/gonawiddagala-bungalow-udawalawe-768x400.jpg",
+        link: "https://www.google.com/search?q=gonawiddagala+bungalow",
+      },
+      {
+        title: "Thibiriyamankada Bungalow",
+        description:
+          "River-view eco lodge with calming nature sounds and wildlife views.",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyNUwi_olVz3DfhhNXch0TN8YyCARK3xGNEw&s",
+        link: "https://www.google.com/search?q=Thibiriyamankada+Bungalow",
+      },
+      {
+        title: "Pokunuthenna Bungalow",
+        description:
+          "Private veranda with direct wildlife viewing and peaceful forest atmosphere.",
+        image:
+          "https://ceylontransit.com/wp-content/uploads/2024/11/pokunuthenna-bungalow-udawa.jpg",
+        link: "https://www.google.com/search?q=pokunuthenna+bungalow",
+      },
+      {
+        title: "Senuggala Bungalow",
+        description:
+          "Premium comfort stay with guided wildlife experiences and night walks.",
+        image:
+          "https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg",
+        link: "https://www.google.com/search?q=Senuggala+Bungalow",
+      },
+    ]}
+  />
+</section>
+
 
           // others     
-
+          <section id="other">
              <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
                Other Places to Visit
              </h2>
@@ -310,7 +312,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
     ))}
   </div>
   </FadeInSection>
-
+</section>
 
  {/* Homestay */}
 <FadeInSection>
@@ -357,7 +359,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
 
 
 {/* 🏨 HOTELS SECTION */}
-
+<section id="hotels">
 <FadeInSection id="hotels">
   <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
     Hotels in Udawalawe
@@ -423,6 +425,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
     ))}
   </div>
 </FadeInSection>
+</section>
       </main>
     );
   }
