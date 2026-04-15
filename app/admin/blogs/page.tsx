@@ -9,13 +9,12 @@ export default function AdminBlogs() {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // form state
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [author, setAuthor] = useState('');
 
-  // ================= FETCH BLOGS =================
+  // ================= FETCH =================
   useEffect(() => {
     const token = localStorage.getItem('token');
 
@@ -30,7 +29,7 @@ export default function AdminBlogs() {
       .finally(() => setLoading(false));
   }, [router]);
 
-  // ================= CREATE BLOG =================
+  // ================= CREATE =================
   const handleSubmit = async () => {
     await fetch('http://localhost:4000/blogs', {
       method: 'POST',
@@ -40,14 +39,9 @@ export default function AdminBlogs() {
       body: JSON.stringify({ title, content, image, author }),
     });
 
-    alert('Blog created!');
-
-    // refresh
     const res = await fetch('http://localhost:4000/blogs');
-    const data = await res.json();
-    setBlogs(data);
+    setBlogs(await res.json());
 
-    // reset
     setTitle('');
     setContent('');
     setImage('');
@@ -66,98 +60,107 @@ export default function AdminBlogs() {
   };
 
   return (
-    <div className="p-10 bg-green-900 min-h-screen">
+    <div className="py-15 bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen">
 
       {/* HEADER */}
-      <div className="flex justify-between mb-6">
-        <h1 className="py-15 text-3xl font-bold text-white">Blog Management</h1>
+      <div className="flex justify-between items-center mb-8 bg-white p-5 rounded-2xl shadow">
+        <h1 className="text-2xl font-bold text-gray-800">
+          Blog Management
+        </h1>
 
         <button
           onClick={() => router.push('/admin/dashboard')}
-          className="bg-gray-700 text-white px-4 py-2 rounded"
+          className="bg-green-800 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
         >
           Back to Dashboard
         </button>
       </div>
 
-      {/* ================= CREATE BLOG ================= */}
-      <div className="bg-white text-gray-900 p-6 rounded-xl shadow mb-10">
-        <h2 className="text-xl text-gray-900 font-bold mb-4">Create Blog</h2>
+      {/* CREATE BLOG CARD */}
+      <div className="bg-white text-gray-800 p-6 rounded-2xl shadow mb-10">
+        <h2 className="text-xl font-semibold mb-4">Create New Blog</h2>
 
-        <input
-          className="w-full mb-3 p-2 border rounded"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <div className="grid md:grid-cols-2 gap-4">
+          <input
+            className="p-3 border rounded-lg"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        <textarea
-          className="w-full mb-3 p-2 border rounded"
-          placeholder="Content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+          <input
+            className="p-3 border rounded-lg"
+            placeholder="Author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
 
-        <input
-          className="w-full mb-3 p-2 border rounded"
-          placeholder="Image URL"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
+          <input
+            className="p-3 border rounded-lg md:col-span-2"
+            placeholder="Image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
 
-        <input
-          className="w-full mb-3 p-2 border rounded"
-          placeholder="Author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
+          <textarea
+            className="p-3 border rounded-lg md:col-span-2"
+            placeholder="Content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
 
         <button
           onClick={handleSubmit}
-          className="bg-green-700 text-gray-900 px-4 py-2 rounded"
+          className="mt-4 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg"
         >
           Add Blog
         </button>
       </div>
 
-      {/* ================= BLOG LIST ================= */}
-      <div className="bg-white p-6 rounded-xl shadow">
-        <h2 className="text-xl text-gray-900 font-bold mb-4">All Blogs</h2>
+      {/* BLOG LIST */}
+      <div className="bg-white text-gray-800 p-6 rounded-2xl shadow">
+        <h2 className="text-xl font-semibold mb-4">All Blogs</h2>
 
         {loading ? (
-          <p>Loading...</p>
+          <p className="text-gray-500">Loading...</p>
         ) : (
-          <table className="w-full border text-gray-900">
-            <thead>
-              <tr className="bg-gray-200 text-gray-800">
-                <th className="p-2 border">Title</th>
-                <th className="p-2 border">Author</th>
-                <th className="p-2 border">Date</th>
-                <th className="p-2 border">Actions</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {blogs.map((blog) => (
-                <tr key={blog.id}>
-                  <td className="p-2 border">{blog.title}</td>
-                  <td className="p-2 border">{blog.author}</td>
-                  <td className="p-2 border">
-                    {new Date(blog.createdAt).toLocaleDateString()}
-                  </td>
-
-                  <td className="p-2 border space-x-2">
-                    <button
-                      onClick={() => handleDelete(blog.id)}
-                      className="bg-red-600 text-white px-3 py-1 rounded"
-                    >
-                      Delete
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full border border-gray-200">
+              <thead className="bg-gray-100 text-gray-700">
+                <tr>
+                  <th className="p-3 border text-left">Title</th>
+                  <th className="p-3 border text-left">Author</th>
+                  <th className="p-3 border text-left">Date</th>
+                  <th className="p-3 border text-left">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody>
+                {blogs.map((blog) => (
+                  <tr
+                    key={blog.id}
+                    className="hover:bg-gray-50 transition"
+                  >
+                    <td className="p-3 border">{blog.title}</td>
+                    <td className="p-3 border">{blog.author}</td>
+                    <td className="p-3 border">
+                      {new Date(blog.createdAt).toLocaleDateString()}
+                    </td>
+
+                    <td className="p-3 border">
+                      <button
+                        onClick={() => handleDelete(blog.id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

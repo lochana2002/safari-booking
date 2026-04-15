@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-green-1000 text-gray-300 pt-16 pb-8 mt-20">
+    <footer className="bg-black-950 text-gray-300 pt-16 pb-8 mt-20">
       {/* MAIN FOOTER GRID */}
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
         {/* --- LOGO + DESCRIPTION --- */}
@@ -15,7 +15,7 @@ export default function Footer() {
               alt="Udawalawe Safari Logo"
               className="rounded-lg"
             />
-            <h2 className="text-2xl font-bold text-white">Siri Safari</h2>
+            <h2 className="text-2xl font-bold text-white">Safari Udawalawe</h2>
           </div>
 
           <p className="mt-4 text-gray-400 leading-relaxed">
@@ -43,18 +43,20 @@ export default function Footer() {
           </ul>
 
           {/* --- SOCIAL MEDIA ICONS --- */}
-          <div className="flex gap-4 mt-6">
+           <h3 className="text-xl font-semibold text-white mb-4">
+            Follow Us
+          </h3>
+          <div className="flex gap-5 mt-6">
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
             >
-              <Image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAACUCAMAAAAu5KLjAAAAaVBMVEUYd/L///8aefIAbvGMsPeOtPh1pfbt9P47gPMQc/HC1vsAcfIAaPEAa/H7/f8SdfL0+P6UuPjk7f20zfqBqfZPj/RkmvWErfZsnvVXk/U7hfNMi/PO3/xklvUAZfG70Prb6Pyqw/mevvhy9p2RAAAC+0lEQVR4nO3aXXOiMBSA4YbIRwgSBBa1UkH//49cWWVGuxybnB6Tdua8F7s3DPNMIBBi395+Q1FogF3MpIyZlDGTMmZSxkzKmEkZMyljJmXMpIyZlDGTMmZSxkzKmEmZB6bRWsupy/8KeY7XMpVcF+vsT9duV/Fq2+72mS4KibC+jqm0Uu9tM6ZVVV4S0z9lVdX5Zm+U67C+iqn1oW1SsVzZxx+RNMGZ8pgMNWC8VvUrJcMytdrV5VPkVZrogEylu/Fr41Rnf4OSM3XUWIzk1JjZn5WaqQ+VHVKIU7h7U8aWQ3m5Nff2tyYx83iyVorRYTBpmfJsjRQiDsXUGwelcHoPETJlZ3/FhejXYZgqs57jU0mg0TS5i7I+uLzS6Zg6cbnkYnB4GlEyDbQcWqxMXOY5HXMduyhFGmi9qb4YzDRvTudT098Oa4ogTPlsMKuxjaYPoSlpkiEtxSHMaEY9rMy74m6lbvTxLc7dJhAVU+3BZ2a5MZ9MkXH6viBkwq/Jarf0tgnElOA1TxznChAJ0yhI2bg9HsFImHoPKMd37DbHp0iYa2ideXZaBj2JhHkEbs0yIhpMEqYpgFdQfyQ4+79ImBHA3BJNIBqmgj56XV+JcBRM3S0zK7o1NwkTWBGPP4sp22VmT3DuWyTM7TIzd351g5EwV8y89krm8DuYPJqYwNEkOPctHPP6q9lcATyQBrmc6/camvmR3LcDdtv7ZLmduxPFNE8+dy06uS+WUUzltPn2X5n71ArA7H39tPo9ZutrCn2LWWMWy/6ZOebLwz+zQ1xz/8wUtVvjnYnbYfDOzFBfm76ZuUEtm3wzV5gJ5J1ZI7foPDMH5HaNZybqoemdWWG36HDMpkrvg37GeDzqchx6Wxa3es8eijbAr6qb6PFAhz+VIWE+Bn2yiZhqT/vFzB+1DcvMOWYyExUz55jJTFTMnGMmM1Exc46ZzETFzDlmMhMVM+eYyUxUzJxjJjNRMXOOmcxExcw5ZjITFTPnmMlMVMycYyYp8y+AwC3CGUFuswAAAABJRU5ErkJggg==" alt="Facebook" width={28} height={28} />
-            </a>
+              <Image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAACUCAMAAAAu5KLjAAAAaVBMVEUYd/L///8aefIAbvGMsPeOtPh1pfbt9P47gPMQc/HC1vsAcfIAaPEAa/H7/f8SdfL0+P6UuPjk7f20zfqBqfZPj/RkmvWErfZsnvVXk/U7hfNMi/PO3/xklvUAZfG70Prb6Pyqw/mevvhy9p2RAAAC+0lEQVR4nO3aXXOiMBSA4YbIRwgSBBa1UkH//49cWWVGuxybnB6Tdua8F7s3DPNMIBBi395+Q1FogF3MpIyZlDGTMmZSxkzKmEkZMyljJmXMpIyZlDGTMmZSxkzKmEmZB6bRWsupy/8KeY7XMpVcF+vsT9duV/Fq2+72mS4KibC+jqm0Uu9tM6ZVVV4S0z9lVdX5Zm+U67C+iqn1oW1SsVzZxx+RNMGZ8pgMNWC8VvUrJcMytdrV5VPkVZrogEylu/Fr41Rnf4OSM3XUWIzk1JjZn5WaqQ+VHVKIU7h7U8aWQ3m5Nff2tyYx83iyVorRYTBpmfJsjRQiDsXUGwelcHoPETJlZ3/FhejXYZgqs57jU0mg0TS5i7I+uLzS6Zg6cbnkYnB4GlEyDbQcWqxMXOY5HXMduyhFGmi9qb4YzDRvTudT098Oa4ogTPlsMKuxjaYPoSlpkiEtxSHMaEY9rMy74m6lbvTxLc7dJhAVU+3BZ2a5MZ9MkXH6viBkwq/Jarf0tgnElOA1TxznChAJ0yhI2bg9HsFImHoPKMd37DbHp0iYa2ideXZaBj2JhHkEbs0yIhpMEqYpgFdQfyQ4+79ImBHA3BJNIBqmgj56XV+JcBRM3S0zK7o1NwkTWBGPP4sp22VmT3DuWyTM7TIzd351g5EwV8y89krm8DuYPJqYwNEkOPctHPP6q9lcATyQBrmc6/camvmR3LcDdtv7ZLmduxPFNE8+dy06uS+WUUzltPn2X5n71ArA7H39tPo9ZutrCn2LWWMWy/6ZOebLwz+zQ1xz/8wUtVvjnYnbYfDOzFBfm76ZuUEtm3wzV5gJ5J1ZI7foPDMH5HaNZybqoemdWWG36HDMpkrvg37GeDzqchx6Wxa3es8eijbAr6qb6PFAhz+VIWE+Bn2yiZhqT/vFzB+1DcvMOWYyExUz55jJTFTMnGMmM1Exc46ZzETFzDlmMhMVM+eYyUxUzJxjJjNRMXOOmcxExcw5ZjITFTPnmMlMVMycYyYp8y+AwC3CGUFuswAAAABJRU5ErkJggg==" alt="Facebook" width={28} height={28} /> </a>
 
             <a
-              href="https://www.youtube.com"
+              href="https://www.whatsapp.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"

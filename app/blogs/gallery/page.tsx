@@ -64,7 +64,7 @@ export default function GalleryPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://media.tacdn.com/media/attractions-splice-spp-360x240/09/93/ac/b8.jpg')", 
+            backgroundImage: "url('https://www.bespoke-bride.com/wp-content/uploads/2018/01/SRI-LANKA-TRAVEL-GUIDE-ELLA-UDAWALAWE-SAFARI-UNAWATUNA-BENTOTA-98.jpg')", 
           }}
         />
 

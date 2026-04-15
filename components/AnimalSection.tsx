@@ -26,11 +26,11 @@ export default function AnimalSection({
     >
       {/* Text */}
       <div className="space-y-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h3 className="text-2xl font-bold text-gray-900">
           {title}
-        </h2>
+        </h3>
 
-        <p className="text-gray-600 text-justify text-lg leading-relaxed">
+       <p className="text-gray-600 text-justify leading-relaxed">
           {expanded || !isLong
             ? description
             : description.slice(0, limit) + "..."}
@@ -40,7 +40,7 @@ export default function AnimalSection({
         {isLong && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-[#899b22] font-semibold hover:underline"
+            className="text-gray-500 font-semibold hover:underline"
           >
             {expanded ? "Read Less ▲" : "Read More ▼"}
           </button>

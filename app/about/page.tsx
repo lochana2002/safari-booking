@@ -87,7 +87,7 @@ export default function About() {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Our Vision
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-600 leading-relaxed text-justify">
             Our vision is to become a trusted and leading safari and rural tourism experience provider in Sri Lanka.
             We aim to connect travelers with nature, wildlife, and authentic village life while promoting sustainable tourism practices. By offering meaningful experiences, we strive to preserve local culture, protect the environment, and create lasting memories for every visitor.
           </p>
@@ -126,7 +126,7 @@ export default function About() {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Our Mission
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-600 leading-relaxed text-justify">
            Our mission is to deliver high-quality safari and village experiences with professional service and genuine hospitality. 
            We are committed to supporting local communities, ensuring guest safety and comfort, and providing unforgettable journeys that showcase the natural beauty and cultural heritage of Sri Lanka.
           </p>
@@ -138,7 +138,7 @@ export default function About() {
         className="relative bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://cdn.tripspoint.com/uploads/photos/8968/udawalawe-national-park-4-hours-private-safari-tour_m8Bs7.jpeg')",
+            "url('https://images.trvl-media.com/localexpert/2275867/a665c5ed-2380-48c7-ad37-13c5757ce2e6.jpg?impolicy=resizecrop&rw=1005&rh=565')",
         }}
       >
         <div className="absolute inset-0 bg-black/40" />

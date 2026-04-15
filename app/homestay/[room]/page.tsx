@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { homestayRooms } from "@/lib/homestayRooms";
 import FadeInSection from "@/components/FadeInSection";
+import Link from "next/link";
 
 export function generateStaticParams() {
   return Object.keys(homestayRooms).map((key) => ({
@@ -39,7 +40,7 @@ export default async function RoomDetailPage({
         <div className="grid md:grid-cols-3 gap-4">
   
   {/* BIG IMAGE */}
-  <div className="md:col-span-2 relative h-[400px] rounded-xl overflow-hidden">
+  <div className="md:col-span-2 relative h-[400px] w-[600px] rounded-xl overflow-hidden">
     <Image
       src={data.images[0]}
       alt={data.name}
@@ -64,7 +65,7 @@ export default async function RoomDetailPage({
 
 </div>
         {/* DESCRIPTION */}
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+        <p className="text-gray-600 text-lg max-w-9xl mx-auto">
           {data.description}
         </p>
 
@@ -107,6 +108,13 @@ export default async function RoomDetailPage({
           Book via WhatsApp
         </a>
       </div>
+
+      <Link
+            href="/homestay/#rooms"
+            className="block mt-4 text-center text-green-800 underline"
+          >
+            ← Back to Room Packages
+          </Link>
       </FadeInSection>
     </main>
   );

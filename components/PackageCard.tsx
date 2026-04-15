@@ -11,7 +11,10 @@ export default function PackageCard({
     <div className="border rounded-xl overflow-hidden hover:shadow-lg">
 
       {/* Card Image */}
-      <img src={image} className="h-60 w-full object-cover" />
+       <img
+    src={image}
+    className="h-60 w-full object-cover transition-transform duration-700 hover:scale-110"
+  />
 
       {/* Content */}
       <div className="p-4 text-center space-y-2">

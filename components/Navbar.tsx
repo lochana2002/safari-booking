@@ -48,7 +48,7 @@ export default function Navbar() {
             height={55}
             className="rounded-lg"
           />
-          <span className="text-xl font-bold text-white">Siri Safari</span>
+          <span className="text-xl font-bold text-white">Safari Udawalawe </span>
         </Link>
 
         {/* DESKTOP MENU */}
@@ -168,7 +168,7 @@ export default function Navbar() {
           {/* BOOK A SAFARI BUTTON */}
           <Link
             href="/safari-packages/#booking-form" 
-            className="ml-4 px-5 py-2 bg-yellow-400 text-black font-medium rounded-lg hover:bg-yellow-300 transition"
+            className="ml-4 px-3 py-2 bg-yellow-400 text-black font-medium rounded-lg hover:bg-yellow-300 transition"
           >
             Book a Safari
           </Link>

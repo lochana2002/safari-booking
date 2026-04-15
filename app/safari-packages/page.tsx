@@ -4,22 +4,13 @@ import { useRouter } from 'next/navigation';
 import PackageCard from "@/components/PackageCard";
 import { ChevronDown, Link } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import FadeInSection from "@/components/FadeInSection";
 
 export default function SafariPackages() {
 
 const [loading, setLoading] = useState(false);
 const router = useRouter();
 const [error, setError] = useState('');
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
@@ -98,13 +89,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       </section>
 
       {/* ================= PACKAGES ================= */}
-                <motion.section
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
->
+  <FadeInSection>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
           <PackageCard
@@ -136,16 +121,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   description="Maximum wildlife experience with lunch break."
   image="https://res.cloudinary.com/jerrick/image/upload/v1744911855/68013defbdad34001dc248bd.jpg"/>
         </div>
-      </motion.section>
+        </FadeInSection>
+     
 
       {/* ---------- ENTRANCE TICKET PRICE SECTION ---------- */}
-          <motion.section
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
->
+   <FadeInSection>
         <h2 className="text-4xl font-bold text-center mb-10 text-gray-900">
           Entrance Tickets Price
         </h2>
@@ -158,13 +138,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               STAY AWARE 🙂
             </h3>
 
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-justify">
               Sri Lanka National park entrance fees have been increased for local
               and foreign tourists from the 1st of September 2022 (Gazette
               Notification No. 2292/11 Aug 2022).
             </p>
 
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-justify">
               You have to buy tickets before you enter the national park from
               the entrance gate. These tickets are issued by Wildlife and
               conservation department. Sometimes the entrance ticket counter is
@@ -239,7 +219,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 <p  className="text-lg text-gray-600 font-semibold py-3">All tickets will be added 15% VAT, Service charges, and Other taxes. * If you stay overnight in the National park this price will be doubled.</p>
           </div>
         </div>
-     </motion.section>
+        </FadeInSection>
+     
 <section
   id="booking-form"
   className="relative min-h-screen flex items-center justify-center text-white"
@@ -294,6 +275,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   <option value="Sri Lanka">Sri Lanka</option>
   <option value="India">India</option>
   <option value="UK">UK</option>
+  <option value="Sri Lanka">USA</option>
+  <option value="Sri Lanka">Jerman</option>
+  <option value="Sri Lanka">Russia</option>
+  <option value="Sri Lanka">France</option>
   <option value="Australia">Australia</option>
   <option value="Other">Other</option>
 </select>
@@ -327,13 +312,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
          {/* ================= FAQ SECTION ================= */}
-            <motion.section id="faq"
-  variants={fadeInUp}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="max-w-7xl mx-auto px-6 py-20 space-y-10"
->
+    <FadeInSection>
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
           FAQs
         </h2>
@@ -381,7 +360,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             </details>
           ))}
         </div>
-      </motion.section>
+        </FadeInSection>
+     
 
       {/* ================= ANIMATION ================= */}
       <style>

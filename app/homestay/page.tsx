@@ -132,7 +132,7 @@ const cardItem = {
   {/* Text Content */}
   <div className="relative text-center px-6 animate-heroFade">
     <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
-      Siri Home Stay
+      Our Home Stay
     </h1>
 
     <p className="py-5 text-lg md:text-xl text-gray-200 mt-4 max-w-3xl mx-auto">
@@ -209,7 +209,7 @@ const cardItem = {
   <ActivitySection
     title="Photography & Sunset Views"
     description="Experience the magic of the countryside through your lens as the day unfolds. Wander through lush paddy fields, rustic village corners, and the surrounding natural landscapes to capture vivid photographs of local wildlife, traditional farming scenes, and everyday village life. As the sun begins to set, watch the sky transform into a breathtaking canvas of warm hues—gold, pink, and purple—reflecting over the fields and creating picture-perfect moments. Whether you’re an avid photographer or simply enjoy scenic views, this activity offers a serene and inspiring way to connect with nature, unwind, and preserve the beauty of your homestay experience forever."
-    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSVSBvCEr4bQ97AZBn5jrlzN0itAidh_0wSA&s"   reverse
+    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY0KtV26SxsZJRGDnZ-8AAKKiO_dHj8HoFpw&s"   reverse
   />
 </motion.section>
 
@@ -218,8 +218,8 @@ const cardItem = {
   className="relative bg-cover bg-center"
   style={{
     backgroundImage:
-      "url('https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/623605967.jpg?k=44fbef164c0917587a80ad892f0427b4fa3b47d9f4a382ab085ff89297f57361&o=')",
-  }}
+      "url('https://i.travelapi.com/lodging/32000000/31910000/31904600/31904518/44f9d017_z.jpg')"
+        }}
 >
   {/* OVERLAY */}
   <div className="absolute inset-0 bg-black/40"></div>
@@ -301,7 +301,7 @@ const cardItem = {
 </section>
 
       {/* ================= ROOMS ================= */}
-      <motion.section
+      <motion.section id="rooms"
         variants={fadeInUp}
         initial="hidden"
         whileInView="show"
@@ -470,8 +470,7 @@ const cardItem = {
         </h2>
 
         <p className="text-gray-600 text-lg max-w-3xl mx-auto mb-8">
-          Book your stay with us and enjoy exclusive Udawalawe safari packages
-          with experienced drivers and well-maintained jeeps.
+          Wake up to wildlife, unwind in comfort, and live the wild experience. 🐘🌿🏡
         </p>
 
         <a

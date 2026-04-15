@@ -202,7 +202,7 @@ export default async function Page({
           </a>
 
           <Link
-            href="/safari-packages"
+            href="/safari-packages/#packages"
             className="block mt-4 text-center text-green-600 underline"
           >
             ← Back to Packages

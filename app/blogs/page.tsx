@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import FadeInSection from "@/components/FadeInSection";
+import Link from "next/link";
+
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -34,7 +37,7 @@ export default function Blogs() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4kGc7pVnihUtgSdMrkUWzIIVC51sO4ZJ_90qAoly-Uw&s')", 
+            backgroundImage: "url('https://udawalawa-safari.com/wp-content/uploads/2025/06/Udawalawa-Safari-Animals.jpg')", 
           }}
         />
 
@@ -66,33 +69,40 @@ export default function Blogs() {
       </section>
 
       {/* ================= BLOG LIST ================= */}
+        <FadeInSection>
       <section className="py-16 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
           Latest Blogs
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
-            <div key={blog.id} className="shadow-lg rounded-xl overflow-hidden">
-              
-              {blog.image && (
-                <img
-                  src={blog.image}
-                  className="h-48 w-full object-cover"
-                />
-              )}
+         {blogs.map((blog) => (
+  <Link href={`/blogs/${blog.id}`} key={blog.id}>
+    <div className="shadow-lg rounded-xl overflow-hidden cursor-pointer hover:shadow-xl transition">
 
-              <div className="p-5">
-                <h3 className="text-xl font-semibold">{blog.title}</h3>
-                <p className="text-gray-600 mt-2 line-clamp-3">
-                  {blog.content}
-                </p>
-              </div>
+      {blog.image && (
+        <img
+          src={blog.image}
+          className="h-48 w-full object-cover"
+        />
+      )}
 
-            </div>
-          ))}
+      <div className="p-5">
+        <h3 className="text-xl text-gray-800 font-semibold">
+          {blog.title}
+        </h3>
+
+        <p className="text-gray-600 mt-2 line-clamp-3">
+          {blog.content}
+        </p>
+      </div>
+
+    </div>
+  </Link>
+))}
         </div>
       </section>
+      </FadeInSection>
     </main>
   );
 }
