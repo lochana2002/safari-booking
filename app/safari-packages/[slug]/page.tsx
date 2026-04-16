@@ -118,6 +118,16 @@ export default async function SafariDetailPage({
             ))}
           </div>
 
+      {/* BOOK NOW BUTTON FOR Homestay*/}
+  <div className="flex justify-center mt-6">
+  <a
+    href="/safari-packages/#booking-form"
+    className="inline-block px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition"
+  >
+    Book Your Safari Now
+  </a>
+</div>
+
           {/* CTA SECTION */}
           <div className="text-center bg-green-900 text-white rounded-2xl p-10 shadow-lg">
             <h2 className="text-2xl font-bold mb-3">

@@ -364,42 +364,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         </FadeInSection>
      </section>
 
-      {/* ================= ANIMATION ================= */}
-      <style>
-        {`
-          .animate-heroFade {
-            animation: heroFade 1.2s ease-out forwards;
-          }
-          @keyframes heroFade {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}
-         {/* ANIMATION STYLE */}
-      <style>
-        {`
-          .animate-heroFade {
-            opacity: 0;
-            animation: heroFade 1.2s ease-out forwards;
-          }
-
-          .delay-1 {
-            animation-delay: 0.3s;
-          }
-
-          @keyframes heroFade {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}
-      </style>
-      </style>
     </main>
   );
 }

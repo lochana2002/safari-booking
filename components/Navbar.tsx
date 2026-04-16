@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/Siri (1).png"
+            src="/images/Udawalawe (2).png"
             alt="Siri Safari Logo"
             width={55}
             height={55}
@@ -168,7 +168,7 @@ export default function Navbar() {
           {/* BOOK A SAFARI BUTTON */}
           <Link
             href="/safari-packages/#booking-form" 
-            className="ml-4 px-3 py-2 bg-yellow-400 text-black font-medium rounded-lg hover:bg-yellow-300 transition"
+            className="ml-4 px-4 py-2 bg-yellow-400 text-black font-medium rounded-lg hover:bg-yellow-300 transition"
           >
             Book a Safari
           </Link>

@@ -96,25 +96,44 @@ export default async function RoomDetailPage({
           </div>
         </div>
 
-        {/* CTA */}
-        <a
-          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            `Hello 👋\n\nI want to book the ${data.name}.\n📅 Dates:\n👨‍👩‍👧 Guests:`
-          )}`}
-          target="_blank"
-          className="inline-block px-10 py-4 bg-green-700 hover:bg-green-600
-                     text-white font-semibold rounded-full shadow-lg transition"
-        >
-          Book via WhatsApp
-        </a>
-      </div>
+         {/* BOOK NOW BUTTON FOR Homestay*/}
+  <div className="flex justify-center mt-6">
+  <a
+    href="/homestay/#booking-form"
+    className="inline-block px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition"
+  >
+    Book Your Room Now
+  </a>
+</div>
+      
+          {/* CTA SECTION */}
+          <div className="text-center bg-green-900 text-white rounded-2xl p-10 shadow-lg">
+            <h2 className="text-2xl font-bold mb-3">
+              Ready for Your Room?
+            </h2>
 
-      <Link
-            href="/homestay/#rooms"
-            className="block mt-4 text-center text-green-600 underline"
-          >
-            ← Back to Room Packages
-          </Link>
+            <p className="text-gray-200 mb-6">
+              Book now your room.
+            </p>
+
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+              <a
+                href="https://wa.me/94771234597"
+                target="_blank"
+                className="px-8 py-3 bg-white text-green-900 font-semibold rounded-full hover:bg-gray-200 transition"
+              >
+                Book via WhatsApp
+              </a>
+
+              <Link
+                 href="/homestay/#rooms"
+                className="px-8 py-3 border border-white rounded-full hover:bg-white hover:text-green-900 transition"
+              >
+                Back to Room Packages
+              </Link>
+            </div>
+          </div>
+</div>
       </FadeInSection>
     </main>
   );

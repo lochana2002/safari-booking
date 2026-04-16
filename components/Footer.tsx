@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="p-2 bg-white/5 rounded-xl backdrop-blur">
                 <Image
-                  src="/Siri (1).png"
+                  src="/images/Udawalawe (2).png"
                   width={50}
                   height={50}
                   alt="logo"

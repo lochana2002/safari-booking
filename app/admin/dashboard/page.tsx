@@ -105,7 +105,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen">
+    <div className="p-22 px-10 bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen">
 
       {/* HEADER */}
       <div className="flex justify-between items-center mb-8 bg-white py-13 rounded-2xl shadow">
