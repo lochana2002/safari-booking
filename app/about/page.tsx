@@ -143,7 +143,7 @@ export default function About() {
       >
         <div className="absolute inset-0 bg-black/40" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-25">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

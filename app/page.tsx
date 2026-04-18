@@ -227,8 +227,6 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
   />
 </section>
 
-
-          // others     
           <section id="other">
              <h2 className="text-4xl font-bold text-gray-900 text-center mb-4">
                Other Places to Visit
