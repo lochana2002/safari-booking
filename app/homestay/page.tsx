@@ -5,6 +5,7 @@ import ActivitySection from "@/components/ActivitySection";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { homestayRooms } from "@/lib/homestayRooms";
+import { useRouter } from 'next/navigation';
 
 export default function HomeStayPage() {
 
@@ -20,6 +21,8 @@ const rooms = Object.entries(homestayRooms);
   room: "",
   message: "",
 });
+
+const router = useRouter();
 
 const [loading, setLoading] = useState(false);
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,13 +41,12 @@ const fadeInUp = {
   },
 };
 
-const [success, setSuccess] = useState(false);
 const [error, setError] = useState("");
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
   setError("");
-  setSuccess(false);
+
 
   // ✅ Frontend validation
   if (!form.name || !form.email || !form.phone) {
@@ -52,7 +54,6 @@ const handleSubmit = async (e: React.FormEvent) => {
     return;
   }
 
-  setLoading(true);
   setLoading(true);
 
   try {
@@ -73,19 +74,22 @@ const handleSubmit = async (e: React.FormEvent) => {
 }),
     });
 
-    if (res.ok) {
-     setSuccess(true);
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        adults: "",
-        kids: "",
-        country: "",
-        room: "",
-        message: "",
-      });
-    } else {
+  if (res.ok) {
+  // optional: reset form
+  setForm({
+    name: "",
+    email: "",
+    phone: "",
+    adults: "",
+    kids: "",
+    country: "",
+    room: "",
+    message: "",
+  });
+
+  // 🔥 redirect to thank-you page
+  router.push('/thank');
+} else {
       setError("Failed to submit booking");
     }
   } catch (err) {
@@ -407,12 +411,6 @@ const cardItem = {
       <input name="room" value={form.room} onChange={handleChange} placeholder="ROOM" className="input" />
 
       <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="MESSAGE" className="col-span-2 input resize-none" />
-
-      {success && (
-        <p className="text-green-400 col-span-2">
-          ✅ Booking submitted successfully!
-        </p>
-      )}
 
       {error && (
         <p className="text-red-400 col-span-2">
