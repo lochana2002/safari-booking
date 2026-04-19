@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 export default function AdminBlogs() {
   const router = useRouter();
 
+  const [successMsg, setSuccessMsg] = useState("");
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -30,8 +31,9 @@ export default function AdminBlogs() {
   }, [router]);
 
   // ================= CREATE =================
-  const handleSubmit = async () => {
-    await fetch('http://localhost:4000/blogs', {
+ const handleSubmit = async () => {
+  try {
+    const res = await fetch('http://localhost:4000/blogs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,14 +41,28 @@ export default function AdminBlogs() {
       body: JSON.stringify({ title, content, image, author }),
     });
 
-    const res = await fetch('http://localhost:4000/blogs');
-    setBlogs(await res.json());
+    if (!res.ok) throw new Error();
 
+    // refresh blogs
+    const newRes = await fetch('http://localhost:4000/blogs');
+    setBlogs(await newRes.json());
+
+    // reset form
     setTitle('');
     setContent('');
     setImage('');
     setAuthor('');
-  };
+
+    // ✅ show popup
+    setSuccessMsg("✅ Blog added successfully!");
+
+    // auto hide after 3s
+    setTimeout(() => setSuccessMsg(""), 3000);
+
+  } catch (err) {
+    alert("❌ Failed to add blog");
+  }
+};
 
   // ================= DELETE =================
   const handleDelete = async (id: number) => {
@@ -61,7 +77,11 @@ export default function AdminBlogs() {
 
   return (
     <div className="py-22 px-10 bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen">
-
+{successMsg && (
+  <div className="fixed top-5 right-5 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg animate-fadeIn z-50">
+    {successMsg}
+  </div>
+)}
       {/* HEADER */}
       <div className="flex justify-between items-center mb-8 bg-white p-5 rounded-2xl shadow">
         <h1 className="text-2xl font-bold text-gray-800">
@@ -163,6 +183,19 @@ export default function AdminBlogs() {
           </div>
         )}
       </div>
+      <style>
+  {`
+    .animate-fadeIn {
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  `}
+</style>
     </div>
+    
   );
 }
