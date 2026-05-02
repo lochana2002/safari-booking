@@ -25,7 +25,7 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:4000/contact', {
+      const res = await fetch('http://localhost:4001/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

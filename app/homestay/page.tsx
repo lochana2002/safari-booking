@@ -57,7 +57,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:4000/room-bookings", {
+    const res = await fetch("http://localhost:4001/room-bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

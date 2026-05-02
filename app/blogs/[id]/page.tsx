@@ -9,7 +9,7 @@ export default function BlogDetail() {
   const [blog, setBlog] = useState<any>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/blogs/${id}`)
+    fetch(`http://localhost:4001/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => setBlog(data));
   }, [id]);

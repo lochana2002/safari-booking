@@ -24,7 +24,7 @@ export default function AdminBlogs() {
       return;
     }
 
-    fetch('http://localhost:4000/blogs')
+    fetch('http://localhost:4001/blogs')
       .then((res) => res.json())
       .then((data) => setBlogs(data))
       .finally(() => setLoading(false));
@@ -33,7 +33,7 @@ export default function AdminBlogs() {
   // ================= CREATE =================
  const handleSubmit = async () => {
   try {
-    const res = await fetch('http://localhost:4000/blogs', {
+    const res = await fetch('http://localhost:4001/blogs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
