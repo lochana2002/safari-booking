@@ -9,7 +9,7 @@ export default function Blogs() {
   const [blogs, setBlogs] = useState<any[]>([]);
 
   useEffect(() => {
-  fetch('http://localhost:4000/blogs')
+  fetch('http://localhost:4001/blogs')
     .then((res) => res.json())
     .then((data) => {
       console.log("BLOGS API:", data);
