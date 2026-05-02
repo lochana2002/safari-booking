@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppChat from "@/components/WhatsAppChat";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="w-full">
           {children}
         </div>
-
+  <ChatWidget /> 
   {/* Global WhatsApp Popup */}
         <WhatsAppChat />
 
