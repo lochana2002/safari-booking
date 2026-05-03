@@ -35,24 +35,28 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 
   try {
-    const res = await fetch('http://localhost:4001/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
+  const res = await fetch('http://localhost:4001/bookings', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload),
+});
 
-    if (!res.ok) {
-      throw new Error('Booking failed');
-    }
+const data = await res.json(); // ✅ VERY IMPORTANT
 
-    // ✅ Redirect after successful booking
-    router.push('/thank-you');
+if (!res.ok) {
+  throw new Error('Booking failed');
+}
 
-  } catch (err) {
-    setError('Failed to submit booking');
-  } finally {
-    setLoading(false);
-  }
+// ✅ redirect with REAL booking ID
+router.push(`/review-form?bookingId=${data.id}`);
+
+
+  
+} catch (err) {
+  setError('Failed to submit booking');
+} finally {
+  setLoading(false);
+}
 };
 
   return (
@@ -74,7 +78,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       <section className="relative h-[60vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://www.leolandtravels.lk/images/destinations/yala-national-park.jpg')" }}
+          style={{ backgroundImage: "url('https://flameoftheforest.in/wp-content/uploads/2018/06/jeep_safari_main_banner-1-1160x638.jpg')" }}
         />
         <div className="absolute inset-0 bg-black/50"></div>
 
@@ -310,59 +314,73 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   </div>
 </section>
 
+{/* ================= FAQ SECTION (ELEGANT UI) ================= */}
+<section id="faq" className="py-20 bg-gradient-to-b from-green-50 to-white">
+  <FadeInSection>
+    <div className="max-w-4xl mx-auto px-6">
+      
+      <h2 className="text-4xl font-bold text-center text-gray-900 mb-4 tracking-tight">
+        FAQs
+      </h2>
 
-         {/* ================= FAQ SECTION ================= */}
-         <section id="faq">
-    <FadeInSection>
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
-          FAQs
-        </h2>
+      <p className="text-center text-gray-600 mb-14">
+        Find answers to the most common questions about Udawalawe safaris.
+      </p>
 
-        <p className="text-center text-gray-600 mb-12">
-          Find answers to the most common questions about Udawalawe safaris.
-        </p>
-
-        <div className="space-y-4 bg-green-50">
-          {[
-            {
-              q: "What is the best time for a safari?",
-              a: "Early morning (6 AM) and evening (3 PM) offer the best wildlife sightings.",
-            },
-            {
-              q: "How long is a safari?",
-              a: "A standard safari lasts around 3 hours. Extended tours are available.",
-            },
-            {
-              q: "Is it safe for children?",
-              a: "Yes, safaris are family-friendly with safe and comfortable jeeps.",
-            },
-            {
-              q: "What should I bring?",
-              a: "Bring water, sunscreen, a hat, camera, and a light jacket.",
-            },
-            {
-              q: "Can I book a private jeep?",
-              a: "Yes, private jeeps are available for families, couples, and photographers.",
-            },
-          ].map((item, i) => (
-            <details
-              key={i}
-              className="group bg-gradient-to-br from-white to-gray-50 
-                         p-6 rounded-2xl shadow-md border hover:shadow-lg 
-                         transition duration-300"
+      <div className="space-y-5">
+        {[
+          {
+            q: "What is the best time for a safari?",
+            a: "Early morning (6 AM) and evening (3 PM) offer the best wildlife sightings.",
+          },
+          {
+            q: "How long is a safari?",
+            a: "A standard safari lasts around 3 hours. Extended tours are available.",
+          },
+          {
+            q: "Is it safe for children?",
+            a: "Yes, safaris are family-friendly with safe and comfortable jeeps.",
+          },
+          {
+            q: "What should I bring?",
+            a: "Bring water, sunscreen, a hat, camera, and a light jacket.",
+          },
+          {
+            q: "Can I book a private jeep?",
+            a: "Yes, private jeeps are available for families, couples, and photographers.",
+          },
+        ].map((item, i) => (
+          <details
+            key={i}
+            className="group bg-white/80 backdrop-blur-md
+            border border-gray-100 rounded-2xl
+            shadow-sm hover:shadow-xl
+            transition-all duration-300
+            overflow-hidden"
+          >
+            <summary
+              className="flex justify-between items-center cursor-pointer
+              px-6 py-5 text-lg font-semibold text-gray-800
+              hover:text-green-800 transition"
             >
-              <summary className="flex justify-between items-center cursor-pointer 
-                                 text-xl font-semibold text-gray-800">
-                {item.q}
-                <span className="transition group-open:rotate-180 text-2xl"> <ChevronDown size={18} /></span>
-              </summary>
+              {item.q}
 
-              <p className="text-gray-600 mt-4">{item.a}</p>
-            </details>
-          ))}
-        </div>
-        </FadeInSection>
-     </section>
+              <span className="text-green-800 transition-transform duration-300 group-open:rotate-180">
+                <ChevronDown size={18} />
+              </span>
+            </summary>
+
+            <div className="px-6 pb-5">
+              <p className="text-gray-600 leading-relaxed">
+                {item.a}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </FadeInSection>
+</section>
 
     </main>
   );

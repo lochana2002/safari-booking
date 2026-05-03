@@ -304,57 +304,76 @@ const cardItem = {
   </div>
 </section>
 
-      {/* ================= ROOMS ================= */}
-      <motion.section id="rooms"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="relative text-center space-y-3 px-6 py-20
-                   bg-gradient-to-b from-green-50 to-white"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Our Rooms
-          </h2>
+      {/* ================= ROOMS (ELEGANT UI) ================= */}
+<motion.section
+  id="rooms"
+  variants={fadeInUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  className="relative text-center space-y-3 px-6 py-20 bg-gradient-to-b from-green-50 to-white"
+>
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-gray-900 mb-14 tracking-tight">
+      Our Rooms
+    </h2>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {rooms.map(([slug, room]) => (
-    <div key={slug} className="border bg-white rounded-2xl hover:shadow-lg overflow-hidden group">
+    <div className="grid md:grid-cols-3 gap-10">
+      {rooms.map(([slug, room]) => (
+        <div
+          key={slug}
+          className="group relative bg-white rounded-2xl overflow-hidden
+          shadow-md hover:shadow-2xl transition-all duration-500
+          hover:-translate-y-2"
+        >
+          {/* Image */}
+          <div className="relative h-64 overflow-hidden">
+            <Image
+              src={room.images[0]}
+              alt={room.name}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
 
-    <div className="relative h-64">
-      <Image
-        src={room.images[0]}
-        alt={room.name}
-        fill
-        className="object-cover group-hover:scale-105 transition duration-700"
-      />
-    </div>
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-    <div className="p-6 space-y-4">
-      <h3 className="text-2xl font-semibold text-gray-800">
-        {room.name}
-      </h3>
+            {/* Floating badge */}
+            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-green-900 text-sm font-semibold px-3 py-1 rounded-full shadow">
+              👥 {room.guests} Guests
+            </div>
+          </div>
 
-      <p className="text-gray-600">👥 Max Guests: {room.guests}</p>
+          {/* Content */}
+          <div className="p-6 space-y-3 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 tracking-tight">
+              {room.name}
+            </h3>
 
-      <p className="text-xl font-bold text-green-700">
-        Rs. {room.price.toLocaleString()} / night
-      </p>
+            <p className="text-green-700 font-semibold text-lg">
+              Rs. {room.price.toLocaleString()}{" "}
+              <span className="text-gray-500 text-sm font-normal">
+                / night
+              </span>
+            </p>
 
-      <Link
-        href={`/homestay/${slug}`}
-        className="block text-center px-6 py-3 bg-green-900 hover:bg-green-700
-                   text-white font-semibold rounded-full shadow-md transition"
-      >
-        View Room Details
-      </Link>
-    </div>
-  </div>
-))}
+            <Link href={`/homestay/${slug}`}>
+              <span
+                className="inline-block mt-3 px-6 py-2.5
+                bg-gradient-to-r from-green-900 to-green-700
+                hover:from-green-800 hover:to-green-600
+                text-white font-medium rounded-full
+                shadow-md transition-all duration-300"
+              >
+                View Room Details
+              </span>
+            </Link>
           </div>
         </div>
-      </motion.section>
+      ))}
+    </div>
+  </div>
+</motion.section>
 
      <section
   id="booking-form"
