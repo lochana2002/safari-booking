@@ -13,58 +13,71 @@ type Props = {
   items: Bungalow[];
 };
 
-export default function BungalowSection({ heading, intro, items }: Props) {
+export default function BungalowSection({
+  heading,
+  intro,
+  items,
+}: Props) {
   return (
-    <section className="py-6 space-y-6">
-      {/* HEADER (compact) */}
+    <section className="py-1 px-6 bg-gradient-to-br from-green-50 via-white to-emerald-50">
+      
+      {/* Header */}
       <FadeInSection>
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-3">
-          {heading}
-        </h2>
+        <div className="text-center mb-16">
+          <span className="uppercase tracking-[0.3em] text-green-700 font-semibold text-sm">
+            Wildlife Accommodation
+          </span>
 
-        <p className="text-gray-600 text-base text-center leading-relaxed max-w-2xl mx-auto">
-          {intro}
-        </p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 text-gray-900">
+            {heading}
+          </h2>
+
+          <div className="w-24 h-1 bg-green-600 mx-auto mt-5 rounded-full" />
+
+          <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-lg">
+            {intro}
+          </p>
+        </div>
       </FadeInSection>
 
-      {/* GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-        {items.map((item, i) => (
-          <FadeInSection key={i}>
-            {/* CARD */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col h-full">
+      {/* Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        {items.map((item, index) => (
+          <FadeInSection key={index}>
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 h-[420px]">
 
-              {/* IMAGE + HOVER */}
-              <div className="relative group">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-48 object-cover transition duration-500 group-hover:scale-105"
-                />
+              {/* Image */}
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+              />
+
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/0 to-transparent" />
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-200 mb-5 leading-relaxed">
+                  {item.description}
+                </p>
 
                 <a
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 
-                             flex items-center justify-center text-white font-semibold 
-                             transition duration-300"
+                  className="inline-flex items-center gap-2 bg-white text-gray-900 px-5 py-3 rounded-full font-semibold hover:bg-green-100 transition duration-300"
                 >
-                  Show More →
+                  Explore
+                  <span className="group-hover:translate-x-1 transition">
+                    →
+                  </span>
                 </a>
               </div>
-
-              {/* CONTENT (compact) */}
-              <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-900">
-                  {item.title}
-                </h3>
-
-                <p className="text-gray-600 text-sm mt-1 flex-grow leading-snug">
-                  {item.description}
-                </p>
-              </div>
-
             </div>
           </FadeInSection>
         ))}
