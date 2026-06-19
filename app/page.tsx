@@ -185,7 +185,6 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
     ))}
     </div>
      </FadeInSection>
-
 <section id="bungalows">
   <BungalowSection
     heading="Stay Inside Udawalawe National Park"
@@ -197,7 +196,8 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
           "Experience a peaceful stay inside Udawalawe National Park surrounded by elephants, birds, and nature.",
         image:
           "https://ceylontransit.com/wp-content/uploads/2024/11/gonawiddagala-bungalow-udawalawe-768x400.jpg",
-        link: "https://www.google.com/search?q=gonawiddagala+bungalow",
+        link:
+          "https://www.google.com/search?q=gonawiddagala+bungalow",
       },
       {
         title: "Thibiriyamankada Bungalow",
@@ -205,7 +205,8 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
           "River-view eco lodge with calming nature sounds and wildlife views.",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyNUwi_olVz3DfhhNXch0TN8YyCARK3xGNEw&s",
-        link: "https://www.google.com/search?q=Thibiriyamankada+Bungalow",
+        link:
+          "https://www.google.com/search?q=Thibiriyamankada+Bungalow",
       },
       {
         title: "Pokunuthenna Bungalow",
@@ -213,7 +214,8 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
           "Private veranda with direct wildlife viewing and peaceful forest atmosphere.",
         image:
           "https://ceylontransit.com/wp-content/uploads/2024/11/pokunuthenna-bungalow-udawa.jpg",
-        link: "https://www.google.com/search?q=pokunuthenna+bungalow",
+        link:
+          "https://www.google.com/search?q=pokunuthenna+bungalow",
       },
       {
         title: "Senuggala Bungalow",
@@ -221,7 +223,8 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
           "Premium comfort stay with guided wildlife experiences and night walks.",
         image:
           "https://i.ytimg.com/vi/adRQZW-iVAE/maxresdefault.jpg",
-        link: "https://www.google.com/search?q=Senuggala+Bungalow",
+        link:
+          "https://www.google.com/search?q=Senuggala+Bungalow",
       },
     ]}
   />
@@ -313,10 +316,23 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
 </section>
 
  {/* Homestay */}
+ <section className="py-1 px-6 bg-gradient-to-br from-green-50 via-white to-emerald-50"> 
 <FadeInSection>
-  <div className="max-w-4xl mx-auto space-y-4"> <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900"> Stay Inside Our Homestay </h2> 
-  <p className="text-gray-600 text-center text-lg leading-relaxed">
-    Where comfort feels like home and nature is right at your doorstep. 🌿🏡✨ </p> 
+  <div className="max-w-4xl mx-auto space-y-4"> <div className="text-center mb-16">
+  <span className="uppercase tracking-[0.3em] text-green-700 font-semibold text-sm">
+    Homestay Experience
+  </span>
+
+  <h2 className="text-4xl md:text-5xl font-bold mt-4 text-gray-900">
+    Stay Inside Our Homestay
+  </h2>
+
+  <div className="w-24 h-1 bg-green-600 mx-auto mt-5 rounded-full" />
+
+  <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-lg leading-relaxed">
+    Where comfort feels like home and nature is right at your doorstep. 🌿🏡✨
+  </p>
+</div>
      <div className="flex justify-center"><a href="/homestay" className="inline-block mt-6 px-8 py-3 bg-green-800 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition" > 
      View Our Homestay </a> </div></div>
 
@@ -353,18 +369,27 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
   </a>
 </div>
   </FadeInSection>
-
+</section>
 
 
 {/* 🏨 HOTELS SECTION */}
-<section id="hotels">
+<section id="hotels" className="py-1 px-6 bg-gradient-to-br from-green-50 via-white to-emerald-50">
 <FadeInSection id="hotels">
-  <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
+ <div className="text-center mb-16">
+  <span className="uppercase tracking-[0.3em] text-green-700 font-semibold text-sm">
+      Luxury & Nature Retreats
+  </span>
+
+  <h2 className="text-4xl md:text-5xl font-bold mt-4 text-gray-900">
     Hotels in Udawalawe
   </h2>
-  <p className="text-gray-600 text-center text-lg leading-relaxed">
-   Where comfort meets the call of the wild. 🏨🌿🐘
+
+  <div className="w-24 h-1 bg-green-600 mx-auto mt-5 rounded-full" />
+
+  <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-lg leading-relaxed">
+    Where comfort meets the call of the wild. 🏨🌿🐘
   </p>
+</div>
 
   <div className="grid md:grid-cols-2 gap-12">
 
