@@ -34,7 +34,7 @@ export default function ChatWidget() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:4001/ai/chat', {
+      const res = await fetch('http://localhost:4002/ai/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input }),
@@ -73,15 +73,15 @@ export default function ChatWidget() {
       {/* Floating Button */}
       <button
   onClick={() => setOpen(!open)}
-  className="fixed bottom-6 right-6 bg-green-800 hover:bg-green-900 
-  text-white px-4 py-3 rounded-full shadow-lg z-50 flex items-center gap-2 animate-pulse"
+  className="fixed bottom-25 right-6 bg-green-800 hover:bg-green-900 
+  text-white px-5 py-3 rounded-full shadow-lg z-50 flex items-center gap-2 animate-pulse"
 >
-  🤖 {open ? 'Close Assistant' : 'AI Assistant'}
+  🤖 {open ? 'Close Assistant' : 'Ask AI'}
 </button>
 
       {/* Chat Box */}
       {open && (
-        <div className="fixed bottom-20 right-6 w-80 h-[450px] bg-white shadow-2xl rounded-2xl flex flex-col z-50">
+        <div className="fixed bottom-35 right-6 w-80 h-[450px] bg-white shadow-2xl rounded-2xl flex flex-col z-50">
 
           {/* Header */}
           <div className="bg-green-700 text-white p-3 rounded-t-2xl font-semibold">
