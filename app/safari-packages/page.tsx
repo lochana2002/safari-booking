@@ -35,7 +35,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 
   try {
-  const res = await fetch('http://localhost:4001/bookings', {
+  const res = await fetch('http://localhost:4002/bookings', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(payload),
@@ -48,7 +48,7 @@ if (!res.ok) {
 }
 
 // ✅ redirect with REAL booking ID
-router.push(`/review-form?bookingId=${data.id}`);
+  router.push("/thank-you");
 
 
   

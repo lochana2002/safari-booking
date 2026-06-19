@@ -57,7 +57,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:4001/room-bookings", {
+    const res = await fetch("http://localhost:4002/room-bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     message: "",
   });
 
-  // 🔥 redirect to thank-you page
+  // 🔥 redirect to thank page
   router.push('/thank');
 } else {
       setError("Failed to submit booking");
@@ -126,8 +126,7 @@ const cardItem = {
     className="absolute inset-0 bg-cover bg-center"
     style={{
       backgroundImage:
-        "url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/623605945.jpg?k=7f654e381189e7f21818f6cb6eb9c2c3ae00fc7e7398319763181efde6896776&o=')",
-    }}
+        "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUa_ONOIzNgUn1BOb2SJEYcsgKcRLV2wUhw&s')"  }}
   />
 
   {/* Dark Overlay */}
