@@ -25,10 +25,7 @@ export default function PackageCard({
         {/* Dark gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-        {/* Price badge */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-green-900 font-bold px-3 py-1 rounded-full shadow">
-          {price}
-        </div>
+       
       </div>
 
       {/* Content */}
