@@ -61,7 +61,7 @@ export default function Contact() {
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage:
-              "url('https://mybreezily.com/wp-content/uploads/2024/10/pngtree-businesswoman-using-contact-icon-interface-photo-image_29649620.jpg')",
+              "url('/images/contact.jpg')",
           }}
         />
 
