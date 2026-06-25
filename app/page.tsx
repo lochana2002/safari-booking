@@ -164,7 +164,7 @@ Conservation: The park is adjacent to the Udawalawe Elephant Transit Home, which
       "https://classicwild.lk/blog/wp-content/uploads/2023/01/cw-3-of-4-1-scaled.jpg",
       "https://i0.wp.com/amazinglanka.com/wp/wp-content/uploads/2014/03/snakes.jpg?ssl=1",
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/32/58/4f/c0/udawalawa-national-park.jpg?w=1100&h=1100&s=1",
-      "https://www.ceylonexpeditions.com/medias/media/big/238/whatsapp-image-2020-05-15-at-22-47-10-1.jpeg",
+      "https://live.staticflickr.com/1808/41603923680_c2737f95fc_b.jpg",
       "https://images.squarespace-cdn.com/content/v1/67f08f396e405f2d221c5386/af0d7206-9544-4e71-8f9a-767c76db8e72/D8A3371.jpg",
       "https://sudathsafarisrilankatours.com/wp-content/uploads/2023/12/sudathsafarisrilankatours_water-monitor-lizards.jpg",
       "https://www.srilankansafari.com/images/types-of-wild-boars-in-sri-lanka/types-of-wild-boars-in-sri-lanka-6.jpg?q=79&w=800&h=571",
