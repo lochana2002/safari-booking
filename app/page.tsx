@@ -8,7 +8,19 @@
   export default function Home() {
 
 
-  const AnimalSection = ({ title, description, image, reverse }) => {
+  interface AnimalSectionProps {
+  title: string;
+  description: string;
+  image: string;
+  reverse?: boolean;
+}
+
+const AnimalSection = ({
+  title,
+  description,
+  image,
+  reverse = false,
+}: AnimalSectionProps) => {
   const [expanded, setExpanded] = useState(false);
 
   const limit = 350; // adjust text limit
