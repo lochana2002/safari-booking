@@ -57,7 +57,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:4002/room-bookings", {
+    const res = await fetch("https://safari-booking-backend-6.onrender.com/room-bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

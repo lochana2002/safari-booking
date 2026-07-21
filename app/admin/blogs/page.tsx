@@ -24,7 +24,7 @@ export default function AdminBlogs() {
       return;
     }
 
-    fetch('http://localhost:4002/blogs')
+    fetch('https://safari-booking-backend-6.onrender.com/blogs')
       .then((res) => res.json())
       .then((data) => setBlogs(data))
       .finally(() => setLoading(false));
@@ -33,7 +33,7 @@ export default function AdminBlogs() {
   // ================= CREATE =================
  const handleSubmit = async () => {
   try {
-    const res = await fetch('http://localhost:4002/blogs', {
+    const res = await fetch('https://safari-booking-backend-6.onrender.com/blogs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function AdminBlogs() {
     if (!res.ok) throw new Error();
 
     // refresh blogs
-    const newRes = await fetch('http://localhost:4002/blogs');
+    const newRes = await fetch('https://safari-booking-backend-6.onrender.com/blogs');
     setBlogs(await newRes.json());
 
     // reset form
@@ -68,7 +68,7 @@ export default function AdminBlogs() {
   const handleDelete = async (id: number) => {
     if (!confirm('Delete this blog?')) return;
 
-    await fetch(`http://localhost:4002/blogs/${id}`, {
+    await fetch(`https://safari-booking-backend-6.onrender.com/blogs/${id}`, {
       method: 'DELETE',
     });
 

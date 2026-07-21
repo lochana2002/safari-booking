@@ -18,7 +18,7 @@ useEffect(() => {
 
   const login = async () => {
     try {
-      const res = await fetch('http://localhost:4002/auth/login', {
+      const res = await fetch('https://safari-booking-backend-6.onrender.com/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

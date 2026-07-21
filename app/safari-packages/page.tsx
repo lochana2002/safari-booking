@@ -35,7 +35,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 
   try {
-  const res = await fetch('http://localhost:4002/bookings', {
+  const res = await fetch('https://safari-booking-backend-6.onrender.com/bookings', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(payload),

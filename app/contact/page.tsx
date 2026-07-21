@@ -25,7 +25,7 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:4002/contact', {
+      const res = await fetch('https://safari-booking-backend-6.onrender.com/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

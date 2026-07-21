@@ -26,9 +26,9 @@ export default function AdminDashboard() {
     };
 
     Promise.all([
-      fetch('http://localhost:4002/admin/bookings', { headers }),
-      fetch('http://localhost:4002/admin/rooms', { headers }),
-      fetch('http://localhost:4002/admin/contacts', { headers }),
+      fetch('https://safari-booking-backend-6.onrender.com/admin/bookings', { headers }),
+      fetch('https://safari-booking-backend-6.onrender.com/admin/rooms', { headers }),
+      fetch('https://safari-booking-backend-6.onrender.com/admin/contacts', { headers }),
     ])
       .then(async ([bRes, rRes, cRes]) => {
         if (!bRes.ok || !rRes.ok || !cRes.ok) {
@@ -59,7 +59,7 @@ export default function AdminDashboard() {
 
     if (!confirm('Are you sure?')) return;
 
-    await fetch(`http://localhost:4002/admin/${type}/${id}`, {
+    await fetch(`https://safari-booking-backend-6.onrender.com/admin/${type}/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
 
     const token = localStorage.getItem('token');
 
-    await fetch(`http://localhost:4002/admin/${type}/${item.id}`, {
+    await fetch(`https://safari-booking-backend-6.onrender.com/admin/${type}/${item.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

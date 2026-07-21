@@ -17,7 +17,7 @@ const slides = [
     tagline: "Ethical, safe, and breathtaking wildlife encounters",
   },
   {
-    src: "https://komadu.com/wp-content/uploads/2018/Tours/Udawalawe/Udawalawe-Family-watching-elephants.jpg",
+    src: "https://media.tacdn.com/media/attractions-splice-spp-674x446/09/21/34/1e.jpg",
     text: "Experience Sri Lankan Wildlife",
     tagline: "Nature, adventure, and serenity in one place",
   },
