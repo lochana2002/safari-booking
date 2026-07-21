@@ -9,7 +9,7 @@ export default function BlogDetail() {
   const [blog, setBlog] = useState<any>(null);
 
   useEffect(() => {
-    fetch(`https://safari-booking-backend-6.onrender.com/blogs/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => setBlog(data));
   }, [id]);

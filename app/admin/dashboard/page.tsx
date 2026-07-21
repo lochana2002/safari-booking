@@ -26,9 +26,9 @@ export default function AdminDashboard() {
     };
 
     Promise.all([
-      fetch('https://safari-booking-backend-6.onrender.com/admin/bookings', { headers }),
-      fetch('https://safari-booking-backend-6.onrender.com/admin/rooms', { headers }),
-      fetch('https://safari-booking-backend-6.onrender.com/admin/contacts', { headers }),
+      fetch('${process.env.NEXT_PUBLIC_API_URL}/admin/bookings', { headers }),
+      fetch('${process.env.NEXT_PUBLIC_API_URL}/admin/rooms', { headers }),
+      fetch('${process.env.NEXT_PUBLIC_API_URL}/admin/contacts', { headers }),
     ])
       .then(async ([bRes, rRes, cRes]) => {
         if (!bRes.ok || !rRes.ok || !cRes.ok) {
@@ -59,7 +59,7 @@ export default function AdminDashboard() {
 
     if (!confirm('Are you sure?')) return;
 
-    await fetch(`https://safari-booking-backend-6.onrender.com/admin/${type}/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/${type}/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
 
     const token = localStorage.getItem('token');
 
-    await fetch(`https://safari-booking-backend-6.onrender.com/admin/${type}/${item.id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/${type}/${item.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
