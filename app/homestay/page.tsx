@@ -57,7 +57,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
-    const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/room-bookings", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/room-bookings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

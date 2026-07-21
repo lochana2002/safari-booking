@@ -9,7 +9,7 @@ export default function Blogs() {
   const [blogs, setBlogs] = useState<any[]>([]);
 
   useEffect(() => {
-  fetch('${process.env.NEXT_PUBLIC_API_URL}/blogs')
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`)
     .then((res) => res.json())
     .then((data) => {
       console.log("BLOGS API:", data);

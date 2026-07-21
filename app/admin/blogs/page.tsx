@@ -24,7 +24,7 @@ export default function AdminBlogs() {
       return;
     }
 
-    fetch('${process.env.NEXT_PUBLIC_API_URL}/blogs')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`)
       .then((res) => res.json())
       .then((data) => setBlogs(data))
       .finally(() => setLoading(false));
@@ -33,7 +33,7 @@ export default function AdminBlogs() {
   // ================= CREATE =================
  const handleSubmit = async () => {
   try {
-    const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/blogs', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function AdminBlogs() {
     if (!res.ok) throw new Error();
 
     // refresh blogs
-    const newRes = await fetch('${process.env.NEXT_PUBLIC_API_URL}/blogs');
+    const newRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`);
     setBlogs(await newRes.json());
 
     // reset form

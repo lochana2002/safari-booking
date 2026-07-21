@@ -26,10 +26,11 @@ export default function AdminDashboard() {
     };
 
     Promise.all([
-      fetch('${process.env.NEXT_PUBLIC_API_URL}/admin/bookings', { headers }),
-      fetch('${process.env.NEXT_PUBLIC_API_URL}/admin/rooms', { headers }),
-      fetch('${process.env.NEXT_PUBLIC_API_URL}/admin/contacts', { headers }),
-    ])
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/bookings`, { headers }),
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/rooms`, { headers }),
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/contacts`, { headers }),
+])
+
       .then(async ([bRes, rRes, cRes]) => {
         if (!bRes.ok || !rRes.ok || !cRes.ok) {
           localStorage.removeItem('token');
