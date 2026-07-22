@@ -34,10 +34,15 @@ export default function ChatWidget() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:4002/ai/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input }),
+      const res = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/ai/chat`,
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ message: input }),
+      
       });
 
       const text = await res.text();
