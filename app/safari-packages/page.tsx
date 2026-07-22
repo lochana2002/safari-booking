@@ -5,6 +5,7 @@ import PackageCard from "@/components/PackageCard";
 import { ChevronDown, Link } from "lucide-react";
 import Image from "next/image";
 import FadeInSection from "@/components/FadeInSection";
+import { safariPackages } from "@/lib/safariPackages";
 
 export default function SafariPackages() {
 
@@ -94,37 +95,20 @@ if (!res.ok) {
 
       {/* ================= PACKAGES ================= */}
   <FadeInSection>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-8">
 
-          <PackageCard
-  title="Three-Hour Safari"
-  slug="three-hour-safari"
-  price="Rs. 12,000"
-  duration="3 Hours"
-  badge="Most Popular"
-  description="Best viewing time for elephants and wildlife."
-  image="https://images.squarespace-cdn.com/content/v1/5a4188e76f4ca304bb0e99ab/1553072783394-N4EDCPCQAK99AKUB4RHQ/udawalawe-safari-19.jpg"
-  
-/>
+{safariPackages.map((pkg)=>(
+    <PackageCard
+        key={pkg.slug}
+        title={pkg.title}
+        description={pkg.description}
+        price={pkg.price}
+        image={pkg.image}
+        slug={pkg.slug}
+    />
+))}
 
-<PackageCard
-  title="Half-Day Safari"
-  slug="half-day-safari"
-  price="Rs. 15,000"
-  duration="5 Hours"
-  badge="Best Value"
-  description="Perfect afternoon safari with golden light."
-  image="https://udawalawenationalparksrilanka.com/wp-content/uploads/2025/02/Udawalawa-National-Park-Sri-Lanka.jpg"/>
-
-<PackageCard
-  title="Full-Day Safari"
-  slug="full-day-safari"
-  price="Rs. 22,000"
-  duration="Full Day"
-  badge="Premium"
-  description="Maximum wildlife experience with lunch break."
-  image="https://res.cloudinary.com/jerrick/image/upload/v1744911855/68013defbdad34001dc248bd.jpg"/>
-        </div>
+</div>
         </FadeInSection>
      
 

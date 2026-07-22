@@ -2,29 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import FadeInSection from "@/components/FadeInSection";
+import { safariPackages } from "@/lib/safariPackages";
 
-const packages = {
-  "three-hour-safari": {
-    title: "Three-Hour Safari",
-    price: "Rs. 12,000",
-    image: "/images/morning.webp",
-    description:
-      "Perfect for early morning wildlife sightings including elephants and birds.",
 
-    details: [
-      "⏰ Duration: 3 Hours",
-      "🕕 Start Time: 6:00 AM",
-      "🚙 Private Safari Jeep",
-      "🦌 Best for Elephant Sightings",
-      "👨‍✈️ Experienced Local Guide",
-    ],
-
-    includes: ["Private Jeep", "Guide", "Fuel"],
-    excludes: ["Tickets", "Food"],
-    schedule: ["06:00 AM Start", "Wildlife spotting", "09:30 AM Return"],
-    notes: ["Bring water", "Wear light clothes"],
-  },
-};
+export async function generateStaticParams() {
+  return safariPackages.map((pkg) => ({
+    slug: pkg.slug,
+  }));
+}
 
 export default async function SafariDetailPage({
   params,
@@ -33,7 +18,9 @@ export default async function SafariDetailPage({
 }) {
   const { slug } = await params;
 
-  const data = packages[slug as keyof typeof packages];
+const data = safariPackages.find(
+    (item) => item.slug === slug
+);
 
   if (!data) return notFound();
 
