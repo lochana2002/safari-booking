@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function WhatsAppChat() {
   const [open, setOpen] = useState(false);
-  const phone = "94770443323";
+  const phone = "94772313201";
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

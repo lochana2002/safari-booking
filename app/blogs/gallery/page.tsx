@@ -7,22 +7,22 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function GalleryPage() {
   const photos = [
-    "/1.jpg",
-    "/21.jpg",
-    "/3.jpg",
-    "/4.jpg",
-    "/5.jpg",
-    "/6.jpg",
-    "/7.jpg",
-    "/8.jpg",
-    "/9.jpg",
-    "/10.jpg",
-    "/111.jpg",
-    "/12.jpg",
-    "/13.jpg",
-    "/14.jpg",
-    "/15.jpg",
-    "/16.jpg"
+    "/images/1.avif",
+    "/images/21.jpg",
+    "/images/3.avif",
+    "/images/4.jpg",
+    "/images/5.jpg",
+    "/images/6.jpeg",
+    "/images/7.jpg",
+    "/images/8.jpg",
+    "/images/9.jpg",
+    "/images/10.jpg",
+    "/images/111.jpg",
+    "/images/12.jpg",
+    "/images/13.avif",
+    "/images/14.webp",
+    "/images/15.jpg",
+    "/images/16.jpg"
   ];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

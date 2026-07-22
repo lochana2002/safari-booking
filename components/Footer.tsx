@@ -46,7 +46,7 @@ export default function Footer() {
                 <MapPin size={16} /> Udawalawe, Sri Lanka
               </p>
               <p className="flex items-center gap-2">
-                <Phone size={16} /> +94 77 000 0000
+                <Phone size={16} /> +94 77 2313201
               </p>
               <p className="flex items-center gap-2">
                 <Mail size={16} /> info@safariudawalawe.com
