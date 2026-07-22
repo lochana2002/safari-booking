@@ -92,7 +92,9 @@ if (!res.ok) {
           </p>
         </div>
       </section>
-
+ <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center py-3">
+          Safari Packages
+        </h2>
       {/* ================= PACKAGES ================= */}
   <FadeInSection>
         <div className="grid md:grid-cols-3 gap-8">
